@@ -12,7 +12,7 @@ namespace Ex03.ConsoleUI
 
         public static void Main()
         {
-   
+            Vehicle v=new 
         }
 
     }

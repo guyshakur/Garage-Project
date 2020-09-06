@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Remoting.Messaging;
 
 namespace Ex03.GarageLogic
 {
@@ -35,7 +36,7 @@ namespace Ex03.GarageLogic
 
         private float m_MaxPeerPressure;
 
-        public float MaxPeerPressure
+        public float MaxPressure
         {
             get
             {
@@ -43,31 +44,22 @@ namespace Ex03.GarageLogic
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Only positive value are allowed");
-                }
-                else
-                {
-                    m_MaxPeerPressure = value;
-                }
+                m_MaxPeerPressure = value;
             }
         }
 
-        public Tire(string i_Brand,float i_CurrentPeerPressure,float i_MaxPeerPressue)
+        public Tire(string i_Brand, float i_CurrentPeerPressure, float i_MaxPeerPressue)
         {
-            Brand= i_Brand;
+            Brand = i_Brand;
             CurrentPeerPressure = i_CurrentPeerPressure;
-            MaxPeerPressure = i_MaxPeerPressue;
-
-
+            MaxPressure = i_MaxPeerPressue;
         }
 
         public void InflateTire(float i_AmountOfAirToAdd)
         {
-            if (i_AmountOfAirToAdd + CurrentPeerPressure > MaxPeerPressure)
+            if (i_AmountOfAirToAdd + CurrentPeerPressure > MaxPressure)
             {
-                throw new ArgumentException("The max peer pressure for this tire is " + MaxPeerPressure);
+                throw new ValueOutOfRangeException(0, MaxPressure);
             }
             else
             {

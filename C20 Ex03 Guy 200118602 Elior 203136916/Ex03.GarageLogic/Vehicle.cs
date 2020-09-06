@@ -61,5 +61,13 @@ namespace Ex03.GarageLogic
                 m_wheels = value;
             }
         }
+
+        public EngineType Engine
+        {
+            get;
+            set;
+        }
+
+        public abstract void InitalizeEngine(float i_CurrentFuel);
     }
 }
