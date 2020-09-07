@@ -39,21 +39,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="ElectricCar.cs" />
-    <Compile Include="ElectricEngine.cs" />
-    <Compile Include="EngineType.cs" />
+    <Compile Include="Enums\eLiecenceType.cs" />
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\ElectricCar.cs" />
+    <Compile Include="Model\ElectricEngine.cs" />
+    <Compile Include="Model\EngineType.cs" />
     <Compile Include="Enums\eColors.cs" />
     <Compile Include="Enums\eDoorsType.cs" />
     <Compile Include="Enums\eFuelType.cs" />
     <Compile Include="Enums\eTypeOfEngine.cs" />
     <Compile Include="Enums\eTypeOfVeichle.cs" />
-    <Compile Include="FuelCar.cs" />
-    <Compile Include="FuelEngine.cs" />
-    <Compile Include="GasStation.cs" />
-    <Compile Include="ValueOutOfRangeException.cs" />
-    <Compile Include="Vehicle.cs" />
-    <Compile Include="Tire.cs" />
+    <Compile Include="Model\FuelCar.cs" />
+    <Compile Include="Model\FuelEngine.cs" />
+    <Compile Include="Model\FuelMotorBike.cs" />
+    <Compile Include="Model\GasStation.cs" />
+    <Compile Include="Model\MotorBike.cs" />
+    <Compile Include="Utils\ValueOutOfRangeException.cs" />
+    <Compile Include="Model\Vehicle.cs" />
+    <Compile Include="Model\Tire.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

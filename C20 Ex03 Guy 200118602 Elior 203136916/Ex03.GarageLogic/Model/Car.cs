@@ -11,8 +11,7 @@ namespace Ex03.GarageLogic
     {
         private eColors m_Colors;
         private eDoorsType m_DoorsType;
-        private float m_MaxEnergy;
-   
+
         public eColors Colors
         {
             get
@@ -37,19 +36,7 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public float MaxEnergy
-        {
-            get
-            {
-                return m_MaxEnergy;
-            }
-            set
-            {
-                m_MaxEnergy = value;
-            }
-        }
-
-        }
-
     }
+
+}
 

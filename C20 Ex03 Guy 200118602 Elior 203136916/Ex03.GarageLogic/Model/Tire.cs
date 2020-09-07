@@ -6,6 +6,8 @@ namespace Ex03.GarageLogic
     public class Tire
     {
         private string m_Brand;
+        private float m_MaxPressure;
+        private float m_CurrentPressure;
 
         public string Brand
         {
@@ -19,51 +21,47 @@ namespace Ex03.GarageLogic
             }
         }
 
-        private float m_CurrentPeerPressure;
-
-        public float CurrentPeerPressure
+        public float CurrentPressure
         {
             get
             {
-                return m_CurrentPeerPressure;
+                return m_CurrentPressure;
             }
             set
             {
-                m_CurrentPeerPressure = value;
+                m_CurrentPressure = value;
             }
 
         }
-
-        private float m_MaxPeerPressure;
 
         public float MaxPressure
         {
             get
             {
-                return m_MaxPeerPressure;
+                return m_MaxPressure;
             }
             set
             {
-                m_MaxPeerPressure = value;
+                m_MaxPressure = value;
             }
         }
 
         public Tire(string i_Brand, float i_CurrentPeerPressure, float i_MaxPeerPressue)
         {
             Brand = i_Brand;
-            CurrentPeerPressure = i_CurrentPeerPressure;
-            MaxPressure = i_MaxPeerPressue;
+            CurrentPressure = i_CurrentPeerPressure;
+            
         }
 
         public void InflateTire(float i_AmountOfAirToAdd)
         {
-            if (i_AmountOfAirToAdd + CurrentPeerPressure > MaxPressure)
+            if (i_AmountOfAirToAdd + CurrentPressure > MaxPressure)
             {
                 throw new ValueOutOfRangeException(0, MaxPressure);
             }
             else
             {
-                CurrentPeerPressure += i_AmountOfAirToAdd;
+                CurrentPressure += i_AmountOfAirToAdd;
             }
 
         }
