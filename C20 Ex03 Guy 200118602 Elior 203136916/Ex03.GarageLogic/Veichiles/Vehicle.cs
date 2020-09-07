@@ -48,7 +48,15 @@ namespace Ex03.GarageLogic
 
             set
             {
-                m_EnergyPercent = value;
+                if(value>Engine.MaxEnergy)
+                {
+                    throw new ValueOutOfRangeException(0, Engine.MaxEnergy);
+                }
+                else
+                {
+                    m_EnergyPercent = value;
+                }
+                
             }
         }
 
@@ -94,6 +102,6 @@ namespace Ex03.GarageLogic
 
 
         //conact betwen veichle to engine
-        public abstract void InitalizeEngine(float i_CurrentEnergy);
+        //public abstract void InitalizeEngine(float i_CurrentEnergy);
     }
 }

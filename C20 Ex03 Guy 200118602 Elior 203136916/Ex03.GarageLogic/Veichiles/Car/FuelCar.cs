@@ -10,10 +10,10 @@ namespace Ex03.GarageLogic
     public class FuelCar : Car
     {
      
-        public override void InitalizeEngine(float i_CurrentEnergy)
-        {
-            Engine = new FuelEngine(FuelType, i_CurrentEnergy, MaxEnergy);
-        }
+        //public override void InitalizeEngine(float i_CurrentEnergy)
+        //{
+        //    Engine = new FuelEngine(FuelType, i_CurrentEnergy, MaxEnergy);
+        //}
 
         public FuelCar(eFuelType i_FuelType,float i_CurrentFuel,float i_MaxFuel)
         {
@@ -24,9 +24,10 @@ namespace Ex03.GarageLogic
 
         }
 
-        public FuelCar(eFuelType i_FuelType)
+        public FuelCar(eFuelType i_FuelType,float i_MaxFuel)
         {
-            FuelType = i_FuelType;
+            Engine = new FuelEngine(i_FuelType, i_MaxFuel);
+           
         }
     }
 

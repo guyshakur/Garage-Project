@@ -12,6 +12,19 @@ namespace Ex03.GarageLogic
         private float m_MaxEnergy;
         private float m_CurrentEnergy;
         protected eTypeOfEngine m_TypeOfEngine;
+        private eFuelType m_FuelType;
+
+        public eFuelType FuelType
+        {
+            get
+            {
+                return m_FuelType;
+            }
+            set
+            {
+                m_FuelType = value;
+            }
+        }
 
         public float MaxEnergy
         {
@@ -33,11 +46,15 @@ namespace Ex03.GarageLogic
             }
             set
             {
-                if(value+ m_CurrentEnergy>MaxEnergy)
+                if(value>MaxEnergy)
                 {
                     throw new ValueOutOfRangeException(0, MaxEnergy);
                 }
-                m_CurrentEnergy += value;
+                else
+                {
+                    m_CurrentEnergy = value;
+                }
+                
             }
         }
 
@@ -51,10 +68,5 @@ namespace Ex03.GarageLogic
 
         public abstract void FillEnergy();
 
-        public EngineType(float i_CurrentEnergy,float i_MaxEnergy)
-        {
-            CurrentEnergy = i_CurrentEnergy;
-            MaxEnergy = i_MaxEnergy;
-        }
     }
 }

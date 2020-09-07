@@ -29,7 +29,15 @@ namespace Ex03.GarageLogic
             }
             set
             {
-                m_CurrentPressure = value;
+                if(value>MaxPressure)
+                {
+                    throw new ValueOutOfRangeException(0, MaxPressure);
+                }
+                else
+                {
+                    m_CurrentPressure = value;
+                }
+                
             }
 
         }

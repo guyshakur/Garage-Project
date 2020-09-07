@@ -14,8 +14,11 @@ namespace Ex03.ConsoleUI
 
         public static void Main()
         {
-            Vehicle v = VeichileFactory.CreateCar(eTypeOfVeichle.FuelCar);
-            
+            Car c = VeichileFactory.CreateCar(eTypeOfVeichle.FuelCar);
+            c.LicenceID = "555";
+            c.EnergyPercent = 2;
+            c.Tires.ElementAt(0).CurrentPressure = 1;
+            Console.WriteLine(c.Engine.MaxEnergy + " " + c.LicenceID+" "+c.EnergyPercent+" "+c.Tires.ElementAt(0).CurrentPressure);
             
         }
 

@@ -50,14 +50,14 @@ namespace Ex03.GarageLogic.Veichiles
         }
             
         
-        public override void InitalizeEngine(float i_CurrentEnergy)
-        {
-            Engine = new FuelEngine(FuelType, i_CurrentEnergy, MaxEnergy);
-        }
+        //public override void InitalizeEngine(float i_CurrentEnergy)
+        //{
+        //    Engine = new FuelEngine(FuelType, i_CurrentEnergy, MaxEnergy);
+        //}
 
-        public Truck(eFuelType i_FuelType)
+        public Truck(eFuelType i_FuelType,float i_MaxEnergy)
         {
-            FuelType = i_FuelType;
+            Engine = new FuelEngine(i_FuelType, i_MaxEnergy);
         }
     }
 }

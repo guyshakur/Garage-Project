@@ -11,7 +11,7 @@ namespace Ex03.GarageLogic
     {
         private eColors m_Colors;
         private eDoorsType m_DoorsType;
-        private eFuelType ? m_FuelType=null;
+        private eFuelType  m_FuelType;
         public eColors Colors
         {
             get
@@ -40,7 +40,7 @@ namespace Ex03.GarageLogic
         {
             get
             {
-                return (eFuelType) m_FuelType;
+                return  m_FuelType;
             }
             set
             {

@@ -11,10 +11,10 @@ namespace Ex03.GarageLogic.Model
     public class FuelMotorBike : MotorBike
     {
 
-        public override void InitalizeEngine(float i_CurrentFuel)
-        {
-            Engine = new FuelEngine(FuelType, i_CurrentFuel, MaxEnergy);
-        }
+        //public override void InitalizeEngine(float i_CurrentFuel)
+        //{
+        //    Engine = new FuelEngine(FuelType, i_CurrentFuel, MaxEnergy);
+        //}
 
         public FuelMotorBike(eFuelType i_FuelType, float i_CurrentFuel, float i_MaxFuel)
         {
@@ -24,9 +24,9 @@ namespace Ex03.GarageLogic.Model
             TypeOfVeichle = eTypeOfVeichle.FuelMotorCycle;
         }
 
-        public FuelMotorBike(eFuelType i_FuelType)
+        public FuelMotorBike(eFuelType i_FuelType,float i_MaxEnergy)
         {
-            FuelType = i_FuelType;
+            Engine = new FuelEngine(i_FuelType, i_MaxEnergy);
         }
     }
 }

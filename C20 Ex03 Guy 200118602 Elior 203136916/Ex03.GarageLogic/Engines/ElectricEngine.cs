@@ -9,27 +9,12 @@ namespace Ex03.GarageLogic
 {
     public class ElectricEngine : EngineType
     {
-        private float m_BatteryHoursLeft;
-        private float m_MaxHoursOfBattery;
-        
-
-        public float BatteryHoursLeft
-        {
-            get
-            {
-                return m_BatteryHoursLeft;
-            }
-            set
-            {
-                    m_BatteryHoursLeft = value;
-            }
-        }
 
         private float m_MaxBattryHours;
 
-        public ElectricEngine(float i_CurrentEnergy, float i_MaxEnergy) 
-            : base(i_CurrentEnergy, i_MaxEnergy)
+        public ElectricEngine(float i_MaxEnergy) 
         {
+            MaxEnergy = i_MaxEnergy;
             m_TypeOfEngine = eTypeOfEngine.ELECTRIC;
         }
 
@@ -45,12 +30,12 @@ namespace Ex03.GarageLogic
             }
         }
 
-       
         public override void FillEnergy()
         {
             GasStation gasStation = new GasStation();
             gasStation.ChargeBattery(this);
 
         }
+
     }
 }

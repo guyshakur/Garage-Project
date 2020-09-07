@@ -31,14 +31,12 @@ namespace Ex03.GarageLogic.Veichiles
             switch (i_TypeOfVeichile)
             {
                 case eTypeOfVeichle.FuelCar:
-                    car = new FuelCar(s_FuelTypeForCar);
-                    car.MaxEnergy = s_MaxFuelForCar;
+                    car = new FuelCar(s_FuelTypeForCar, s_MaxFuelForCar);
                     car.Tires = initTires(s_NumberOfTiresForCar, s_MaxTirePressureForCar);
                     break;
 
                 case eTypeOfVeichle.ElectricCar:
-                    car = new ElectricCar();
-                    car.MaxEnergy = s_MaxTimeForBatteryForCar;
+                    car = new ElectricCar(s_MaxTimeForBatteryForCar);
                     car.Tires = initTires(s_NumberOfTiresForCar, s_MaxTirePressureForCar);
                     break;
             }
@@ -52,14 +50,12 @@ namespace Ex03.GarageLogic.Veichiles
             switch (i_TypeOfVeichile)
             {
                 case eTypeOfVeichle.FuelMotorCycle:
-                    motorBike = new FuelMotorBike(s_FuelTypeForBike);
-                    motorBike.MaxEnergy = s_MaxFuelForBike;
+                    motorBike = new FuelMotorBike(s_FuelTypeForBike,s_MaxFuelForBike);
                     motorBike.Tires = initTires(s_NumberOfTiresForMotorBike, s_MaxTirePressureForBike);
                     break;
 
                 case eTypeOfVeichle.ElectricMotorCycle:
-                    motorBike = new ElectricMotorBike();
-                    motorBike.MaxEnergy = s_MaxTimeForBatteryForBike;
+                    motorBike = new ElectricMotorBike(s_MaxTimeForBatteryForBike);
                     motorBike.Tires = initTires(s_NumberOfTiresForMotorBike, s_MaxTirePressureForBike);
                     break;
             }
@@ -67,15 +63,14 @@ namespace Ex03.GarageLogic.Veichiles
             return motorBike;
         }
 
-        public static Truck CreateTrucl(eTypeOfVeichle i_TypeOfVeichile)
+        public static Truck CreateTruck(eTypeOfVeichle i_TypeOfVeichile)
         {
             Truck truck = null;
             switch (i_TypeOfVeichile)
             {
                 case eTypeOfVeichle.Truck:
-                    truck = new Truck(s_FuelTypeForTruck);
-                    truck.MaxEnergy = s_MaxFuelForTruck;
-                    truck.Tires = initTires(s_NumberOfTiresForMotorTruck, s_MaxFuelForTruck);
+                    truck = new Truck(s_FuelTypeForTruck,s_MaxFuelForTruck);
+                    truck.Tires = initTires(s_NumberOfTiresForMotorTruck, s_MaxTirePressureForTruck);
                     break;
             }
 

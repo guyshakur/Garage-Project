@@ -10,10 +10,10 @@ namespace Ex03.GarageLogic
     public class ElectricCar : Car
     {
 
-        public override void InitalizeEngine(float i_CurrentEnergy)
-        {
-            Engine = new ElectricEngine(i_CurrentEnergy, MaxEnergy);
-        }
+        //public override void InitalizeEngine(float i_CurrentEnergy)
+        //{
+        //    Engine = new ElectricEngine(i_CurrentEnergy, MaxEnergy);
+        //}
 
         public ElectricCar(float i_CurrentBatteryHours, float i_MaxBatteryHours)
         {
@@ -23,9 +23,9 @@ namespace Ex03.GarageLogic
 
         }
 
-        public ElectricCar()
+        public ElectricCar(float i_MaxEnergy)
         {
-
+            Engine = new ElectricEngine(i_MaxEnergy);
         }
     }
 }
