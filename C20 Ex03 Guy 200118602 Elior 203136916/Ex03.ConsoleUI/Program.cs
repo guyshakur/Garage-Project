@@ -1,4 +1,6 @@
 ﻿using Ex03.GarageLogic;
+using Ex03.GarageLogic.Enums;
+using Ex03.GarageLogic.Veichiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,9 @@ namespace Ex03.ConsoleUI
 
         public static void Main()
         {
-            Vehicle v=new 
+            Vehicle v = VeichileFactory.CreateCar(eTypeOfVeichle.FuelCar);
+            
+            
         }
 
     }

@@ -12,15 +12,19 @@ namespace Ex03.GarageLogic
 
         public override void InitalizeEngine(float i_CurrentEnergy)
         {
-            EngineType engine = new ElectricEngine(i_CurrentEnergy, MaxEnergy);
+            Engine = new ElectricEngine(i_CurrentEnergy, MaxEnergy);
         }
 
         public ElectricCar(float i_CurrentBatteryHours, float i_MaxBatteryHours)
         {
-            
             EnergyPercent = i_CurrentBatteryHours;
             MaxEnergy = i_MaxBatteryHours;
             TypeOfVeichle = eTypeOfVeichle.ElectricCar;
+
+        }
+
+        public ElectricCar()
+        {
 
         }
     }
