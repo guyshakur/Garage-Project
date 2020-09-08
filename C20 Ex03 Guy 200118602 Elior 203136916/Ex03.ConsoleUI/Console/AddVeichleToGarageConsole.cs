@@ -119,10 +119,14 @@ namespace Ex03.ConsoleUI
 					, currentGazAmount, tiresModel, tiresCurrentPressure, color,
 					doorsType);
 				garage.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
+				Console.WriteLine("added a new car is succeess");
+				Console.WriteLine("added a Cusomer is succeess");
 			}
 			catch (ValueOutOfRangeException voore)
 			{
+
 				Console.WriteLine(voore.Message);
+				Console.WriteLine("added a new car is failed");
 				fuelCar();
 
 			}
