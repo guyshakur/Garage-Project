@@ -39,7 +39,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        private string LicenceIDOfCar
+        public string LicenceIDOfCar
         {
             get
             {

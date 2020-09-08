@@ -32,7 +32,7 @@ namespace Ex03.GarageLogic
             {
                 if(value>MaxPressure)
                 {
-                    throw new ValueOutOfRangeException(0, MaxPressure);
+                    throw new ValueOutOfRangeException("Max Pressure",0, MaxPressure);
                 }
                 else
                 {
@@ -70,7 +70,7 @@ namespace Ex03.GarageLogic
         {
             if (i_AmountOfAirToAdd + CurrentPressure > MaxPressure)
             {
-                throw new ValueOutOfRangeException(0, MaxPressure);
+                throw new ValueOutOfRangeException("Amount Of Air", 0, MaxPressure- MaxPressure);
             }
             else
             {

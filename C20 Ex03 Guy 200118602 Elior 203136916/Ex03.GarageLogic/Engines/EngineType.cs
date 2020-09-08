@@ -48,7 +48,7 @@ namespace Ex03.GarageLogic
             {
                 if(value>MaxEnergy)
                 {
-                    throw new ValueOutOfRangeException(0, MaxEnergy);
+                    throw new ValueOutOfRangeException("Max Engine Energy",0, MaxEnergy);
                 }
                 else
                 {

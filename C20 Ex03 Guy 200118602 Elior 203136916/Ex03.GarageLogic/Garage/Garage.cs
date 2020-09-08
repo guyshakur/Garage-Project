@@ -17,8 +17,8 @@ namespace Ex03.GarageLogic.Garage
         private List<Car> m_Cars = null;
         private List<Truck> m_Trucks = null;
         private List<MotorBike> m_Motors = null;
-        private List<Customer> m_Customers = null;
-        private List<Vehicle> m_Vehicles = null;
+        private static List<Customer> m_Customers = null;
+        private static List<Vehicle> m_Vehicles = null;
 
         public Car Car
         {
@@ -104,8 +104,8 @@ namespace Ex03.GarageLogic.Garage
                 m_Customers = value;
             }
         }
-        
-        public List<Vehicle>Vehicles
+
+        public static List<Vehicle> Vehicles
         {
             get
             {
@@ -119,7 +119,7 @@ namespace Ex03.GarageLogic.Garage
 
         public void AddCustomer(string i_FullName, string i_PhoneNumber, string i_LicenceId)
         {
-         
+
             if (Customers == null)
             {
                 Customers = new List<Customer>();
@@ -159,7 +159,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, eLiecenceType i_LicenceType , float i_EngineCapacity)
+        public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, eLiecenceType i_LicenceType, float i_EngineCapacity)
         {
             switch (i_TypeOfVeichile)
             {
@@ -186,7 +186,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public void AddTruckAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, bool i_IsDangarus,float i_TruckCapacity)
+        public void AddTruckAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, bool i_IsDangarus, float i_TruckCapacity)
         {
             switch (i_TypeOfVeichile)
             {
@@ -212,36 +212,95 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        private void initTires(Vehicle i_Vehicle,string i_TiresModel, float i_CurrntTireAirPressure)
+        private void initTires(Vehicle i_Vehicle, string i_TiresModel, float i_CurrntTireAirPressure)
         {
-            foreach(Tire tire in i_Vehicle.Tires)
+            foreach (Tire tire in i_Vehicle.Tires)
             {
                 tire.Brand = i_TiresModel;
                 tire.CurrentPressure = i_CurrntTireAirPressure;
             }
         }
 
-        public bool IsLicenceIDExistInGarage(string i_LicenceID)
+        public static bool IsLicenceIDExistInGarage(string i_LicenceID)
         {
             bool isExist = false;
-            if (Vehicles!=null)
+            if (Vehicles != null)
             {
                 foreach (Vehicle v in Vehicles)
                 {
-                   if( v.LicenceID.Equals(i_LicenceID))
+                    if (v.LicenceID.Equals(i_LicenceID))
                     {
                         isExist = true;
                         break;
                     }
                 }
-                
+
             }
-            
+
             return isExist;
         }
 
-    
+        public string GetAllLiecenceAndStatus()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (Vehicles != null)
+            {
+                if (Vehicles.Count == 0)
+                {
+                    sb.AppendLine("There Are No Vehicles In The Garage Yet.");
+                }
+                foreach (Customer customer in Customers)
+                {
+                    sb.AppendLine(customer.LicenceIDOfCar)
+                        .Append(" Status - " + customer.Status);
+                }
+            }
+            return sb.ToString();
+
+        }
+
+        public string GetAllfileredLiecenceByVehicleStatus(eVeichileStatus i_VehicleStatus)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (Vehicles != null)
+            {
+
+                foreach (Customer customer in Customers)
+                {
+                    if (customer.Status == i_VehicleStatus)
+                    {
+                        sb.AppendLine(customer.LicenceIDOfCar);
+                    }
+                }
+                if (String.IsNullOrEmpty(sb.ToString()))
+                {
+                    sb.AppendLine("There Are No Vehicles With That Status");
+                }
+            }
+            return sb.ToString();
+        }
+
+        public bool ChangeStatusOfVehicleIfExists(string i_LiecenceID,eVeichileStatus i_VehicleStatus)
+        {
+            bool isExist = false;
+            if(IsLicenceIDExistInGarage(i_LiecenceID))
+            {
+                isExist = true;
+                //Customers.ElementAt(GetIndexOfCustomerByLiecenceID(i_LiecenceID)).Status = i_VehicleStatus;
+            }
+
+            return isExist;
+        }
+
+        //private int GetIndexOfCustomerByLiecenceID(string i_LiecenceID)
+        //{
+        //    int index = -1;
+        //    for(int i=0;i<Customers.Count;i++)
+        //    {
+                
+        //    }
+        //}
     }
 
-    
+
 }
