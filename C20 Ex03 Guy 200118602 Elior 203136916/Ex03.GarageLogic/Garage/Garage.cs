@@ -286,20 +286,28 @@ namespace Ex03.GarageLogic.Garage
             if(IsLicenceIDExistInGarage(i_LiecenceID))
             {
                 isExist = true;
-                //Customers.ElementAt(GetIndexOfCustomerByLiecenceID(i_LiecenceID)).Status = i_VehicleStatus;
+                if(GetIndexOfCustomerByLiecenceID(i_LiecenceID)!=-1)
+                {
+                   Customers.ElementAt(GetIndexOfCustomerByLiecenceID(i_LiecenceID)).Status = i_VehicleStatus;
+                }
+                
             }
 
             return isExist;
         }
 
-        //private int GetIndexOfCustomerByLiecenceID(string i_LiecenceID)
-        //{
-        //    int index = -1;
-        //    for(int i=0;i<Customers.Count;i++)
-        //    {
-                
-        //    }
-        //}
+        private int GetIndexOfCustomerByLiecenceID(string i_LiecenceID)
+        {
+            int index = -1;
+            for(int i=0;i<Customers.Count;i++)
+            {
+                if(Customers.ElementAt(i).LicenceIDOfCar.Equals(i_LiecenceID))
+                {
+                    index = i;
+                }
+            }
+            return index;
+        }
     }
 
 
