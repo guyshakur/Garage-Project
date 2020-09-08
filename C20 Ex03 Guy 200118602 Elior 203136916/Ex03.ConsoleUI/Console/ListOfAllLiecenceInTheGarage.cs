@@ -7,11 +7,15 @@ namespace Ex03.ConsoleUI
 	{
 		public static void getListOfAllLiecenceInTheGarage()
 		{
-			if(true)//!ifHaveAList())	//Ex03.GarageLogic.Garage
+			Garage garage = new Garage();
+			if (garage.GetAllLiecenceAndStatus().Length == 0)
 			{
 				Console.WriteLine("You have no vehicle in the garage yet");
 			}
-			else { }
+			else 
+			{
+				Console.WriteLine(garage.GetAllLiecenceAndStatus().ToString());
+			}
 		}
 	}
 }
