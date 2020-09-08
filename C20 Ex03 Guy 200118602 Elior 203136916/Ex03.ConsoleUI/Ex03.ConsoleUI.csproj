@@ -51,6 +51,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddVeichleToGarageConsole.cs" />
     <Compile Include="GarageConsole.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
