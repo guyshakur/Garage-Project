@@ -17,8 +17,8 @@ namespace Ex03.GarageLogic.Garage
         private List<Car> m_Cars = null;
         private List<Truck> m_Trucks = null;
         private List<MotorBike> m_Motors = null;
-        private List<Customer> m_Customers = null;
-        private List<Vehicle> m_Vehicles = null;
+        private static List<Customer> m_Customers = null;
+        private static List<Vehicle> m_Vehicles = null;
 
         public Car Car
         {
@@ -93,7 +93,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public List<Customer> Customers
+        public static List<Customer> Customers
         {
             get
             {
@@ -105,7 +105,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public List<Vehicle> Vehicles
+        public static List<Vehicle> Vehicles
         {
             get
             {
@@ -240,7 +240,7 @@ namespace Ex03.GarageLogic.Garage
             return isExist;
         }
 
-        public string GetAllLiecenceAndStatus()
+        public static string GetAllLiecenceAndStatus()
         {
             StringBuilder sb = new StringBuilder();
             if (Vehicles != null)
@@ -251,15 +251,15 @@ namespace Ex03.GarageLogic.Garage
                 }
                 foreach (Customer customer in Customers)
                 {
-                    sb.AppendLine(customer.LicenceIDOfCar)
-                        .Append(" Status - " + customer.Status);
+                    sb.AppendLine(customer.LicenceIDOfCar + "Status - " + customer.Status);
+                        
                 }
             }
             return sb.ToString();
 
         }
 
-        public string GetAllfileredLiecenceByVehicleStatus(eVeichileStatus i_VehicleStatus)
+        public static string GetAllfileredLiecenceByVehicleStatus(eVeichileStatus i_VehicleStatus)
         {
             StringBuilder sb = new StringBuilder();
             if (Vehicles != null)
