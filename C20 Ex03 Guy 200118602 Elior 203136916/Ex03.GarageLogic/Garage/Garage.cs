@@ -17,8 +17,8 @@ namespace Ex03.GarageLogic.Garage
         private List<Car> m_Cars = null;
         private List<Truck> m_Trucks = null;
         private List<MotorBike> m_Motors = null;
-        private static List<Customer> m_Customers = null;
-        private static List<Vehicle> m_Vehicles = null;
+        private List<Customer> m_Customers = null;
+        private List<Vehicle> m_Vehicles = null;
 
         public Car Car
         {
@@ -105,7 +105,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public static List<Vehicle> Vehicles
+        public List<Vehicle> Vehicles
         {
             get
             {
@@ -221,7 +221,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public static bool IsLicenceIDExistInGarage(string i_LicenceID)
+        public bool IsLicenceIDExistInGarage(string i_LicenceID)
         {
             bool isExist = false;
             if (Vehicles != null)

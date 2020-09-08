@@ -19,12 +19,13 @@ namespace Ex03.ConsoleUI
 			eColors color = eColors.Gray;
 			eDoorsType doorType = eDoorsType.Two;
 			eLiecenceType liecenceType = eLiecenceType.A;
+			Garage garage = new Garage();
 
 
 			readTypeOfVeicle = int.Parse(addVeichleChoice());
 			Console.WriteLine("Please enter licence id of the car:");
 			licenceID = Console.ReadLine();
-			if (!Garage.IsLicenceIDExistInGarage(licenceID))
+			if (!garage.IsLicenceIDExistInGarage(licenceID))
 			{
 				Console.WriteLine("Please enter your full name");
 				fullName = Console.ReadLine();
@@ -98,7 +99,6 @@ namespace Ex03.ConsoleUI
 				}
 				try
 				{
-					Garage garage = new Garage();
 					if ((eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.FuelCar ||           //1
 						(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricCar)         //2
 					{
