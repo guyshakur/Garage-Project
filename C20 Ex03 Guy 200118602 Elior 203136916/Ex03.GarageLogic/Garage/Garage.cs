@@ -221,7 +221,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public bool IsLicenceIDExistInGarage(string i_LicenceID)
+        public static bool IsLicenceIDExistInGarage(string i_LicenceID)
         {
             bool isExist = false;
             if (Vehicles != null)
@@ -243,16 +243,17 @@ namespace Ex03.GarageLogic.Garage
         public static string GetAllLiecenceAndStatus()
         {
             StringBuilder sb = new StringBuilder();
-            if (Vehicles != null)
+            if (Vehicles == null || Vehicles.Count == 0)
             {
-                if (Vehicles.Count == 0)
-                {
-                    sb.AppendLine("There Are No Vehicles In The Garage Yet.");
-                }
+
+                sb.AppendLine("There Are No Vehicles In The Garage Yet.");
+            }
+            else
+            {
                 foreach (Customer customer in Customers)
                 {
                     sb.AppendLine(customer.LicenceIDOfCar + " Status - " + customer.Status);
-                        
+
                 }
             }
             return sb.ToString();
@@ -280,7 +281,7 @@ namespace Ex03.GarageLogic.Garage
             return sb.ToString();
         }
 
-        public bool ChangeStatusOfVehicleIfExists(string i_LiecenceID,eVeichileStatus i_VehicleStatus)
+        public static bool ChangeStatusOfVehicleIfExists(string i_LiecenceID,eVeichileStatus i_VehicleStatus)
         {
             bool isExist = false;
             if(IsLicenceIDExistInGarage(i_LiecenceID))
@@ -296,7 +297,7 @@ namespace Ex03.GarageLogic.Garage
             return isExist;
         }
 
-        private int GetIndexOfCustomerByLiecenceID(string i_LiecenceID)
+        private static int GetIndexOfCustomerByLiecenceID(string i_LiecenceID)
         {
             int index = -1;
             for(int i=0;i<Customers.Count;i++)

@@ -18,7 +18,7 @@ namespace Ex03.ConsoleUI
 					"for exit press another key");
 				if (int.TryParse(Console.ReadLine(), out int result) && result > 0 && result < 4)
 				{
-					Garage.GetAllfileredLiecenceByVehicleStatus((eVeichileStatus)result);
+					Console.WriteLine(Garage.GetAllfileredLiecenceByVehicleStatus((eVeichileStatus)result));
 				}
 			}
 			System.Threading.Thread.Sleep(1500);
