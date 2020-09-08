@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using Ex03.GarageLogic.Enums;
 using Ex03.GarageLogic.Garage;
+using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
 {
@@ -84,30 +85,42 @@ namespace Ex03.ConsoleUI
 		{
 			try
 			{
+				string licenceID, model, tiresModel;
+				float currentGazAmount, tiresCurrentPressure;
+				int intColor, intDoorsType;
+				eColors color;
+				eDoorsType doorsType;
 				Console.WriteLine("Please enter licence id of the car:");
-				string licenceID = Console.ReadLine();
+				licenceID = Console.ReadLine();
 				Console.WriteLine("Please enter Model of the car");
-				string model = Console.ReadLine();
-				Console.WriteLine("Please enter current gas amount of the car (numeric)");
-				float currentGazAmount = float.Parse(Console.ReadLine());
+				model = Console.ReadLine();
+				do {
+					Console.WriteLine("Please enter current gas amount of the car (numeric)");
+				}while(!float.TryParse(Console.ReadLine(), out currentGazAmount));
 				Console.WriteLine("please enter Tires Model of the car");
-				string tiresModel = Console.ReadLine();
-				Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
-				float tiresCurrentPressure = float.Parse(Console.ReadLine());
-				Console.WriteLine("Please enter Color of the car\ngrey->1, green->2, white->3 , red->4");
-				eColors color = (eColors)int.Parse(Console.ReadLine());
-				Console.WriteLine("Please enter doors type of the car");
-				eDoorsType doorsType = (eDoorsType)(int.Parse(Console.ReadLine()) - 1);
+				tiresModel = Console.ReadLine();
+				do {
+					Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
+				}while(!float.TryParse(Console.ReadLine(), out tiresCurrentPressure));
+				do {
+					Console.WriteLine("Please enter Color of the car\ngrey->1, green->2, white->3 , red->4");
+				}while(!(int.TryParse(Console.ReadLine(), out intColor) && intColor>=1 && intColor<=4));
+				color = (eColors)intColor;
+				do {
+					Console.WriteLine("Please enter doors type of the car(between 2-5)");
+				}while(!((int.TryParse(Console.ReadLine(), out intDoorsType))&& intDoorsType>=2 && intDoorsType <=5));
+				doorsType = (eDoorsType)(intDoorsType - 1);
 				//Car c = new Car();
-				Garage g = new Garage();
-				g.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
-				g.AddCarAndFillWithDetails(eTypeOfVeichle.FuelCar, licenceID, model
+				Garage garage = new Garage();
+				garage.AddCarAndFillWithDetails(eTypeOfVeichle.FuelCar, licenceID, model
 					, currentGazAmount, tiresModel, tiresCurrentPressure, color,
 					doorsType);
+				garage.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
 			}
-			catch(FormatException fe)
+			catch(ValueOutOfRangeException voore)
 			{
-
+				Console.WriteLine(voore.);
+				
 			}
 		}
 		private static void electricCar()
