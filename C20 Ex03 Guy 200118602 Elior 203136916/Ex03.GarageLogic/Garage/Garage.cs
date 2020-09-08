@@ -113,17 +113,34 @@ namespace Ex03.GarageLogic.Garage
             Customers.Add(new Customer(i_FullName, i_PhoneNumber, i_LicenceId));
         }
 
-        public void AddVeichile(eTypeOfVeichle i_TypeOfVeichile)
+        public void AddVehicleAndFillWithData(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure)
         {
             switch (i_TypeOfVeichile)
             {
                 case eTypeOfVeichle.FuelCar:
-                    if(Cars==null)
+                case eTypeOfVeichle.ElectricCar:
+                    if (Cars == null)
                     {
                         Cars = new List<Car>();
                     }
-                    Cars.Add(VeichileFactory.CreateCar(i_TypeOfVeichile));
-                    fillCarWithData();
+                    Car car = VeichileFactory.CreateCar(i_TypeOfVeichile);
+                    car.LicenceID = i_LicenceID;
+                    car.Model = i_VehicleModel;
+                    car.Engine.CurrentEnergy = i_EngineCurrentEnergy;
+                    
+                   
+                    Cars.Add(car);
+                    break;
+
+                case eTypeOfVeichle.FuelMotorCycle:
+                case eTypeOfVeichle.ElectricMotorCycle:
+                    if(Motors==null)
+                    {
+                        Motors = new List<MotorBike>();
+                    }
+                    MotorBike motor = VeichileFactory.CreateMotorBike(i_TypeOfVeichile);
+                    motor.LicenceID = i_LicenceID;
+                    motor.Model = i_VehicleModel;
                     break;
             }
         }
