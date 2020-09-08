@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using Ex03.GarageLogic.Enums;
 using Ex03.GarageLogic.Garage;
 
@@ -81,27 +82,33 @@ namespace Ex03.ConsoleUI
 
 		private static void fuelCar()
 		{
-			Console.WriteLine("Please enter licence id of the car:");
-			string licenceID = Console.ReadLine();
-			Console.WriteLine("Please enter Model of the car");
-			string model = Console.ReadLine();
-			Console.WriteLine("Please enter current gas amount of the car (numeric)");
-			float currentGazAmount = float.Parse(Console.ReadLine());
-			Console.WriteLine("please enter Tires Model of the car");
-			string tiresModel = Console.ReadLine();
-			Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
-			float tiresCurrentPressure = float.Parse(Console.ReadLine());
-			Console.WriteLine("Please enter Color of the car\ngrey->1, green->2, white->3 , red->4");
-			eColors color = (eColors)int.Parse(Console.ReadLine());
-			Console.WriteLine("Please enter doors type of the car");
-			eDoorsType doorsType = (eDoorsType)(int.Parse(Console.ReadLine()) - 1);
-			//Car c = new Car();
-			Garage g = new Garage();
-			g.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
-			g.AddCarAndFillWithDetails(eTypeOfVeichle.FuelCar, licenceID, model
-				, currentGazAmount, tiresModel, tiresCurrentPressure, color,
-				doorsType);
-			
+			try
+			{
+				Console.WriteLine("Please enter licence id of the car:");
+				string licenceID = Console.ReadLine();
+				Console.WriteLine("Please enter Model of the car");
+				string model = Console.ReadLine();
+				Console.WriteLine("Please enter current gas amount of the car (numeric)");
+				float currentGazAmount = float.Parse(Console.ReadLine());
+				Console.WriteLine("please enter Tires Model of the car");
+				string tiresModel = Console.ReadLine();
+				Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
+				float tiresCurrentPressure = float.Parse(Console.ReadLine());
+				Console.WriteLine("Please enter Color of the car\ngrey->1, green->2, white->3 , red->4");
+				eColors color = (eColors)int.Parse(Console.ReadLine());
+				Console.WriteLine("Please enter doors type of the car");
+				eDoorsType doorsType = (eDoorsType)(int.Parse(Console.ReadLine()) - 1);
+				//Car c = new Car();
+				Garage g = new Garage();
+				g.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
+				g.AddCarAndFillWithDetails(eTypeOfVeichle.FuelCar, licenceID, model
+					, currentGazAmount, tiresModel, tiresCurrentPressure, color,
+					doorsType);
+			}
+			catch(FormatException fe)
+			{
+
+			}
 		}
 		private static void electricCar()
 		{
