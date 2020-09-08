@@ -15,17 +15,18 @@ namespace Ex03.GarageLogic
         //    Engine = new FuelEngine(FuelType, i_CurrentEnergy, MaxEnergy);
         //}
 
-        public FuelCar(eFuelType i_FuelType,float i_CurrentFuel,float i_MaxFuel)
-        {
-            FuelType = i_FuelType;
-            EnergyPercent= i_CurrentFuel;
-            MaxEnergy = i_MaxFuel;
-            TypeOfVeichle = eTypeOfVeichle.FuelCar;
+        //public FuelCar(eFuelType i_FuelType,float i_CurrentFuel,float i_MaxFuel)
+        //{
+        //    FuelType = i_FuelType;
+        //    EnergyPercent= i_CurrentFuel;
+        //    MaxEnergy = i_MaxFuel;
+        //    TypeOfVeichle = eTypeOfVeichle.FuelCar;
 
-        }
+        //}
 
         public FuelCar(eFuelType i_FuelType,float i_MaxFuel)
         {
+            TypeOfVeichle = eTypeOfVeichle.FuelCar;
             Engine = new FuelEngine(i_FuelType, i_MaxFuel);
            
         }

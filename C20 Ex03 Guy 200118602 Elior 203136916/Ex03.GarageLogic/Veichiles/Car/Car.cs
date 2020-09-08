@@ -48,6 +48,16 @@ namespace Ex03.GarageLogic
             }
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine("Color : " + Colors.ToString());
+            sb.AppendLine("Doors: " + DoorType.ToString());
+
+            return sb.ToString();
+        }
+
     }
 
 }

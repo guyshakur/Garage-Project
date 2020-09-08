@@ -16,16 +16,17 @@ namespace Ex03.GarageLogic.Model
         //    Engine = new FuelEngine(FuelType, i_CurrentFuel, MaxEnergy);
         //}
 
-        public FuelMotorBike(eFuelType i_FuelType, float i_CurrentFuel, float i_MaxFuel)
-        {
-            FuelType = i_FuelType;
-            EnergyPercent = i_CurrentFuel;
-            MaxEnergy = i_MaxFuel;
-            TypeOfVeichle = eTypeOfVeichle.FuelMotorCycle;
-        }
+        //public FuelMotorBike(eFuelType i_FuelType, float i_CurrentFuel, float i_MaxFuel)
+        //{
+        //    FuelType = i_FuelType;
+        //    EnergyPercent = i_CurrentFuel;
+        //    MaxEnergy = i_MaxFuel;
+        //    TypeOfVeichle = eTypeOfVeichle.FuelMotorCycle;
+        //}
 
         public FuelMotorBike(eFuelType i_FuelType,float i_MaxEnergy)
         {
+            TypeOfVeichle = eTypeOfVeichle.FuelMotorCycle;
             Engine = new FuelEngine(i_FuelType, i_MaxEnergy);
         }
     }

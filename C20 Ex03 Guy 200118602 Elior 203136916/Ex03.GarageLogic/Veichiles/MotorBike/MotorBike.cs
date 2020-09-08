@@ -49,5 +49,14 @@ namespace Ex03.GarageLogic.Model
             }
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine("Licence Type: " + LiecenceType.ToString());
+            sb.AppendLine("Engine Capacity: " + EngineCapacity);
+
+            return sb.ToString();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Ex03.GarageLogic.Model;
+﻿using Ex03.GarageLogic.Enums;
+using Ex03.GarageLogic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Ex03.GarageLogic.Veichiles
 
         public ElectricMotorBike(float i_MaxEnergy)
         {
+            TypeOfVeichle = eTypeOfVeichle.ElectricMotorCycle;
             Engine = new ElectricEngine(i_MaxEnergy);
         }
     }

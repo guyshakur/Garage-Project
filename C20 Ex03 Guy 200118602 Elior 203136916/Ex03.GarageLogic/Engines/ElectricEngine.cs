@@ -37,5 +37,16 @@ namespace Ex03.GarageLogic
 
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder()
+                .AppendLine("The Max Hours Of Batter Is:" + MaxEnergy)
+                .AppendLine("The Hours That Left For The Battery Are: " + CurrentEnergy);
+
+            return sb.ToString();
+        }
+
+        
+
     }
 }

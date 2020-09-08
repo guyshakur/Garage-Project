@@ -119,12 +119,14 @@ namespace Ex03.GarageLogic.Garage
 
         public void AddCustomer(string i_FullName, string i_PhoneNumber, string i_LicenceId)
         {
-      
+         
             if (Customers == null)
             {
                 Customers = new List<Customer>();
             }
-            Customers.Add(new Customer(i_FullName, i_PhoneNumber, i_LicenceId));
+            Customer customer = new Customer(i_FullName, i_PhoneNumber, i_LicenceId);
+            customer.Status = eVeichileStatus.FIXING;
+            Customers.Add(customer);
         }
 
 
@@ -219,9 +221,27 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        private void fillCarWithData()
+        public bool IsLicenceIDExistInGarage(string i_LicenceID)
         {
-            throw new NotImplementedException();
+            bool isExist = false;
+            if (Vehicles!=null)
+            {
+                foreach (Vehicle v in Vehicles)
+                {
+                   if( v.LicenceID.Equals(i_LicenceID))
+                    {
+                        isExist = true;
+                        break;
+                    }
+                }
+                return isExist;
+            }
+                
+            return index;
         }
+
+    
     }
+
+    
 }

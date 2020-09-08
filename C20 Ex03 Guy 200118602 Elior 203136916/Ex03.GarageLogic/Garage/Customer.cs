@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ex03.GarageLogic.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -12,6 +13,7 @@ namespace Ex03.GarageLogic.Garage
         private string m_fullname;
         private string m_PhoneNumber;
         private string m_LiecenceVehicleId;
+        private eVeichileStatus m_VeichileStatus;
 
         public string FullName
         {
@@ -46,6 +48,18 @@ namespace Ex03.GarageLogic.Garage
             set
             {
                 m_LiecenceVehicleId = value;
+            }
+        }
+
+        public eVeichileStatus Status
+        {
+            get
+            {
+                return m_VeichileStatus;
+            }
+            set
+            {
+                m_VeichileStatus = value;
             }
         }
 

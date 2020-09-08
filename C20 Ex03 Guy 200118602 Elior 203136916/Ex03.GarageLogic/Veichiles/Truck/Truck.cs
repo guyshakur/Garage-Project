@@ -57,6 +57,7 @@ namespace Ex03.GarageLogic.Veichiles
 
         public Truck(eFuelType i_FuelType, float i_MaxEnergy)
         {
+            TypeOfVeichle = eTypeOfVeichle.Truck;
             Engine = new FuelEngine(i_FuelType, i_MaxEnergy);
         }
 

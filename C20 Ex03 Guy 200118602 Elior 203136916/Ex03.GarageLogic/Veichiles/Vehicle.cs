@@ -9,8 +9,6 @@ namespace Ex03.GarageLogic
         private string m_Model;
         private string m_LicenceID;
         private List<Tire> m_Tires;
-        private float m_EnergyPercent;
-        private float m_MaxEnergy;
         private EngineType m_EngineType;
         private eTypeOfVeichle m_TypeOfVehicle;
         private eTypeOfEngine m_TypeOfEngine;
@@ -40,26 +38,26 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public float EnergyPercent
-        {
-            get
-            {
-                return m_EnergyPercent;
-            }
+        //public float EnergyPercent
+        //{
+        //    get
+        //    {
+        //        return m_EnergyPercent;
+        //    }
 
-            set
-            {
-                if(value>Engine.MaxEnergy)
-                {
-                    throw new ValueOutOfRangeException(0, Engine.MaxEnergy);
-                }
-                else
-                {
-                    m_EnergyPercent = value;
-                }
+        //    set
+        //    {
+        //        if(value>Engine.MaxEnergy)
+        //        {
+        //            throw new ValueOutOfRangeException(0, Engine.MaxEnergy);
+        //        }
+        //        else
+        //        {
+        //            m_EnergyPercent = value;
+        //        }
                 
-            }
-        }
+        //    }
+        //}
 
         public eTypeOfVeichle TypeOfVeichle
         {
@@ -73,17 +71,17 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public float MaxEnergy
-        {
-            get
-            {
-                return m_MaxEnergy;
-            }
-            set
-            {
-                m_MaxEnergy = value;
-            }
-        }
+        //public float MaxEnergy
+        //{
+        //    get
+        //    {
+        //        return m_MaxEnergy;
+        //    }
+        //    set
+        //    {
+        //        m_MaxEnergy = value;
+        //    }
+        //}
 
         public List<Tire> Tires
         {
@@ -109,14 +107,26 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public eTypeOfEngine TypeOfEngine { get; set; }
-
+        public eTypeOfEngine TypeOfEngine
+        {
+            get
+            {
+                return m_TypeOfEngine;
+            }
+            set
+            {
+                m_TypeOfEngine = value;
+            }
+        }
         public override string ToString()
         {
             StringBuilder sb =
                 new StringBuilder().AppendLine("Vehicle Full Details:")
                 .AppendLine("Type: " + TypeOfVeichle)
+                .AppendLine("Licence ID: " + LicenceID)
                 .AppendLine("Model: " + Model)
+                .AppendLine("Engine Details: ")
+                .AppendLine(Engine.ToString())
                 .AppendLine("Tires Details:");
 
             foreach (Tire tire in Tires)

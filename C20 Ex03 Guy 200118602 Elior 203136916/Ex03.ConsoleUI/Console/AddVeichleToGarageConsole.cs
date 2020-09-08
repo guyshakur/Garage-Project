@@ -1,4 +1,5 @@
 ﻿using System;
+using Ex03.GarageLogic;
 using Ex03.GarageLogic.Enums;
 using Ex03.GarageLogic.Garage;
 
@@ -90,6 +91,7 @@ namespace Ex03.ConsoleUI
 			Console.WriteLine("please enter Tires Model of the car");
 			string tiresModel = Console.ReadLine();
 			Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
+			//float tiresCurrentPressure = float.Parse(Console.ReadLine());
 			float tiresCurrentPressure = float.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter Color of the car\ngrey->1, green->2, white->3 , red->4");
 			eColors color = (eColors)int.Parse(Console.ReadLine());
@@ -98,10 +100,18 @@ namespace Ex03.ConsoleUI
 			//Car c = new Car();
 			Garage g = new Garage();
 			g.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
-			g.AddCarAndFillWithDetails(eTypeOfVeichle.FuelCar, licenceID, model
+
+			try
+            {
+				g.AddCarAndFillWithDetails(eTypeOfVeichle.FuelCar, licenceID, model
 				, currentGazAmount, tiresModel, tiresCurrentPressure, color,
 				doorsType);
-			
+			}
+			catch(ValueOutOfRangeException ex)
+            {
+				Console.WriteLine(ex.Message);
+            }
+
 		}
 		private static void electricCar()
 		{

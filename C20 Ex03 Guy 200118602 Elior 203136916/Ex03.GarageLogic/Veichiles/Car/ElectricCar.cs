@@ -15,17 +15,23 @@ namespace Ex03.GarageLogic
         //    Engine = new ElectricEngine(i_CurrentEnergy, MaxEnergy);
         //}
 
-        public ElectricCar(float i_CurrentBatteryHours, float i_MaxBatteryHours)
-        {
-            EnergyPercent = i_CurrentBatteryHours;
-            MaxEnergy = i_MaxBatteryHours;
-            TypeOfVeichle = eTypeOfVeichle.ElectricCar;
+        //public ElectricCar(float i_CurrentBatteryHours, float i_MaxBatteryHours)
+        //{
+        //    EnergyPercent = i_CurrentBatteryHours;
+        //    MaxEnergy = i_MaxBatteryHours;
+        //    TypeOfVeichle = eTypeOfVeichle.ElectricCar;
 
-        }
+        //}
 
         public ElectricCar(float i_MaxEnergy)
         {
+            TypeOfVeichle = eTypeOfVeichle.ElectricCar;
             Engine = new ElectricEngine(i_MaxEnergy);
         }
+
+        //public override string ToString()
+        //{
+        //    return "";
+        //}
     }
 }

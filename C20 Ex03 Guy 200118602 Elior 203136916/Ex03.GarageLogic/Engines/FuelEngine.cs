@@ -22,5 +22,16 @@ namespace Ex03.GarageLogic
             gasStation.FillFuel(this);
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("The Max Fuel Tank Is The Size Of: " + MaxEnergy + " Litters");
+            sb.AppendLine("The Fuel Type is: " + FuelType.ToString());
+            sb.AppendLine("The Current Fuel That Left Is " + CurrentEnergy + " Litters");
+
+            return sb.ToString();
+                
+        }
+
     }
 }

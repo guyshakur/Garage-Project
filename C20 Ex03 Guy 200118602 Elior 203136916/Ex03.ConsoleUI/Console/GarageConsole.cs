@@ -61,7 +61,7 @@ namespace Ex03.ConsoleUI
 
 		private static string mainMenuChoice()
 		{
-			Console.Clear();
+			//Console.Clear();
 			Console.WriteLine("     Garage");
 			Console.WriteLine("in any location if you press on key 'Q' you return to main menu");
 			Console.WriteLine("please choose your choice:\n" +
