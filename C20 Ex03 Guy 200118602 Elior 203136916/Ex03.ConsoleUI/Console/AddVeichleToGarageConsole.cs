@@ -8,7 +8,6 @@ namespace Ex03.ConsoleUI
 {
 	public class AddVeichleToGarageConsole
 	{
-
 		public static eTypeOfVeichle AddVeichleToGarage()
 		{
 			string phoneNumber, fullName;
