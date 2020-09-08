@@ -127,14 +127,15 @@ namespace Ex03.GarageLogic.Garage
             Customers.Add(new Customer(i_FullName, i_PhoneNumber, i_LicenceId));
         }
 
-        public void AddVehicleAndFillWithData(eTypeOfVeichle i_TypeOfVeichile,string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure,eColors i_Color=eColors.Gray,eDoorsType i_DoorType=eDoorsType.Five,eLiecenceType i_LicenceType=eLiecenceType.A,float i_EngineCapacity=0,bool i_IsDangorus=false,float i_TruckCapacity=0)
+
+        public void AddCarAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, eColors i_Color, eDoorsType i_DoorType)
         {
             switch (i_TypeOfVeichile)
             {
 
                 case eTypeOfVeichle.FuelCar:
                 case eTypeOfVeichle.ElectricCar:
-                    if(Vehicles == null)
+                    if (Vehicles == null)
                     {
                         Vehicles = new List<Vehicle>();
                     }
@@ -146,20 +147,27 @@ namespace Ex03.GarageLogic.Garage
                     car.LicenceID = i_LicenceID;
                     car.Model = i_VehicleModel;
                     car.Engine.CurrentEnergy = i_EngineCurrentEnergy;
-                    initTires(car,i_TiresModel, i_CurrntTireAirPressure);
+                    initTires(car, i_TiresModel, i_CurrntTireAirPressure);
                     car.Colors = i_Color;
                     car.DoorType = i_DoorType;
                     Cars.Add(car);
                     Vehicles.Add(car);
                     break;
 
+            }
+        }
+
+        public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, eLiecenceType i_LicenceType , float i_EngineCapacity)
+        {
+            switch (i_TypeOfVeichile)
+            {
                 case eTypeOfVeichle.FuelMotorCycle:
                 case eTypeOfVeichle.ElectricMotorCycle:
-                    if(Vehicles==null)
+                    if (Vehicles == null)
                     {
                         Vehicles = new List<Vehicle>();
                     }
-                    if(Motors==null)
+                    if (Motors == null)
                     {
                         Motors = new List<MotorBike>();
                     }
@@ -173,7 +181,13 @@ namespace Ex03.GarageLogic.Garage
                     Motors.Add(motor);
                     Vehicles.Add(motor);
                     break;
+            }
+        }
 
+        public void AddTruckAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, bool i_IsDangarus,float i_TruckCapacity)
+        {
+            switch (i_TypeOfVeichile)
+            {
                 case eTypeOfVeichle.Truck:
                     if (Vehicles == null)
                     {
@@ -188,7 +202,7 @@ namespace Ex03.GarageLogic.Garage
                     truck.Model = i_VehicleModel;
                     truck.Engine.CurrentEnergy = i_EngineCurrentEnergy;
                     initTires(truck, i_TiresModel, i_CurrntTireAirPressure);
-                    truck.IsHazardous = i_IsDangorus;
+                    truck.IsHazardous = i_IsDangarus;
                     truck.TruckCapacity = i_TruckCapacity;
                     Trucks.Add(truck);
                     Vehicles.Add(truck);

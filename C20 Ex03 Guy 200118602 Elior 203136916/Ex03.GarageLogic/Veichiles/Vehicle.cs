@@ -1,5 +1,6 @@
 ﻿using Ex03.GarageLogic.Enums;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Ex03.GarageLogic
 {
@@ -101,7 +102,23 @@ namespace Ex03.GarageLogic
         public eTypeOfVeichle TypeOfVeichle { get; set; }
 
 
-        //conact betwen veichle to engine
-        //public abstract void InitalizeEngine(float i_CurrentEnergy);
+        public override string ToString()
+        {
+            StringBuilder sb =
+                new StringBuilder().AppendLine("Vehicle Full Details:")
+                .AppendLine("Type: " + TypeOfVeichle)
+                .AppendLine("Model: " + Model)
+                .AppendLine("Tires Details:");
+
+            foreach (Tire tire in Tires)
+            {
+                sb.AppendLine(tire.ToString());
+            }
+
+            return sb.ToString();
+        }
     }
+
+   
+    
 }

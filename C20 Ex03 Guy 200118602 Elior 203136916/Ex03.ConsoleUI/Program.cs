@@ -18,9 +18,8 @@ namespace Ex03.ConsoleUI
             Garage g = new Garage();
 
             eTypeOfVeichle type = eTypeOfVeichle.Truck;
-            g.AddVehicleAndFillWithData(type, "564", "mazda", 25.3f, "bb", 15.9f);
-            Console.WriteLine(g.Trucks.ElementAt(0).Tires.ElementAt(0).Brand + " " + g.Vehicles.ElementAt(0).Tires.ElementAt(15).CurrentPressure);
-                
+            g.AddVehicleAndFillWithData(type, "564", "mazda", 25.3f, "bb", 15.9f,false,415f);
+            g.ToString();     
 
            //GarageConsole.Garage(); 
         }

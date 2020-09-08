@@ -48,29 +48,32 @@ namespace Ex03.GarageLogic.Veichiles
                 m_TruckCapacity = value;
             }
         }
-            
-        
+
+
         //public override void InitalizeEngine(float i_CurrentEnergy)
         //{
         //    Engine = new FuelEngine(FuelType, i_CurrentEnergy, MaxEnergy);
         //}
 
-        public Truck(eFuelType i_FuelType,float i_MaxEnergy)
+        public Truck(eFuelType i_FuelType, float i_MaxEnergy)
         {
             Engine = new FuelEngine(i_FuelType, i_MaxEnergy);
         }
 
         public override string ToString()
         {
-            StringBuilder sb=
+            StringBuilder sb =
                 new StringBuilder().AppendLine("Vehicle Full Details:")
-                .AppendLine("Type: "+TypeOfVeichle)
-                .AppendLine("Model: "+Model)
+                .AppendLine("Type: " + TypeOfVeichle)
+                .AppendLine("Model: " + Model)
                 .AppendLine("Tires Details:");
 
+            foreach (Tire tire in Tires)
+            {
+                sb.AppendLine(tire.ToString());
+            }
+
             return sb.ToString();
-                
-               
         }
     }
 }
