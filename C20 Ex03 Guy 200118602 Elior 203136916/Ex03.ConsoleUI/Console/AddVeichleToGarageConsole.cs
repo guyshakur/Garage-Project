@@ -20,7 +20,7 @@ namespace Ex03.ConsoleUI
 			eDoorsType doorType = eDoorsType.Two;
 			eLiecenceType liecenceType = eLiecenceType.A;
 			Garage garage = new Garage();
-
+			Console.Clear();
 			readTypeOfVeicle = int.Parse(addVeichleChoice());
 			Console.WriteLine("Please enter licence id of the car:");
 			licenceID = Console.ReadLine();
@@ -128,7 +128,7 @@ namespace Ex03.ConsoleUI
 				{
 					Console.WriteLine(ex.Message);
 					Console.WriteLine("added a new car/motorcycle/truck is failed.\ntry again");
-					System.Threading.Thread.Sleep(500);
+					System.Threading.Thread.Sleep(1500);
 					return AddVeichleToGarage();
 				}
 
@@ -137,12 +137,14 @@ namespace Ex03.ConsoleUI
 			{
 				Console.WriteLine("The Licence ID is exists");
 			}
+			System.Threading.Thread.Sleep(1500);
 			return (eTypeOfVeichle)readTypeOfVeicle;
 		}
 		
 
 private static string addVeichleChoice()
 		{
+			Console.Clear();
 			Console.WriteLine("     Add Veichle To Garage");
 			Console.WriteLine("in any location if you press on key 'Q' you return to main menu");
 			Console.WriteLine("please choose:\n" +
