@@ -8,13 +8,13 @@ namespace Ex03.ConsoleUI
 		public static void getListOfAllLiecenceInTheGarage()
 		{
 			Garage garage = new Garage();
-			if (garage.GetAllLiecenceAndStatus().Length == 0)
+			if (Garage.GetAllLiecenceAndStatus().Length == 0)
 			{
 				Console.WriteLine("You have no vehicle in the garage yet");
 			}
 			else 
 			{
-				Console.WriteLine(garage.GetAllLiecenceAndStatus().ToString());
+				Console.WriteLine(Garage.GetAllLiecenceAndStatus().ToString());
 			}
 		}
 	}
