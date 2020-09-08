@@ -251,7 +251,7 @@ namespace Ex03.GarageLogic.Garage
                 }
                 foreach (Customer customer in Customers)
                 {
-                    sb.AppendLine(customer.LicenceIDOfCar + "Status - " + customer.Status);
+                    sb.AppendLine(customer.LicenceIDOfCar + " Status - " + customer.Status);
                         
                 }
             }
