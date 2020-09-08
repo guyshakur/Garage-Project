@@ -234,10 +234,10 @@ namespace Ex03.GarageLogic.Garage
                         break;
                     }
                 }
-                return isExist;
-            }
                 
-            return index;
+            }
+            
+            return isExist;
         }
 
     
