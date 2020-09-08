@@ -18,6 +18,7 @@ namespace Ex03.GarageLogic.Garage
         private List<Truck> m_Trucks = null;
         private List<MotorBike> m_Motors = null;
         private List<Customer> m_Customers = null;
+        private List<Vehicle> m_Vehicles = null;
 
         public Car Car
         {
@@ -103,9 +104,22 @@ namespace Ex03.GarageLogic.Garage
                 m_Customers = value;
             }
         }
+        
+        public List<Vehicle>Vehicles
+        {
+            get
+            {
+                return m_Vehicles;
+            }
+            set
+            {
+                m_Vehicles = value;
+            }
+        }
 
         public void AddCustomer(string i_FullName, string i_PhoneNumber, string i_LicenceId)
         {
+      
             if (Customers == null)
             {
                 Customers = new List<Customer>();
@@ -113,12 +127,17 @@ namespace Ex03.GarageLogic.Garage
             Customers.Add(new Customer(i_FullName, i_PhoneNumber, i_LicenceId));
         }
 
-        public void AddVehicleAndFillWithData(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure)
+        public void AddVehicleAndFillWithData(eTypeOfVeichle i_TypeOfVeichile,string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure,eColors i_Color=eColors.Gray,eDoorsType i_DoorType=eDoorsType.Five,eLiecenceType i_LicenceType=eLiecenceType.A,float i_EngineCapacity=0,bool i_IsDangorus=false,float i_TruckCapacity=0)
         {
             switch (i_TypeOfVeichile)
             {
+
                 case eTypeOfVeichle.FuelCar:
                 case eTypeOfVeichle.ElectricCar:
+                    if(Vehicles == null)
+                    {
+                        Vehicles = new List<Vehicle>();
+                    }
                     if (Cars == null)
                     {
                         Cars = new List<Car>();
@@ -127,13 +146,19 @@ namespace Ex03.GarageLogic.Garage
                     car.LicenceID = i_LicenceID;
                     car.Model = i_VehicleModel;
                     car.Engine.CurrentEnergy = i_EngineCurrentEnergy;
-                    
-                   
+                    initTires(car,i_TiresModel, i_CurrntTireAirPressure);
+                    car.Colors = i_Color;
+                    car.DoorType = i_DoorType;
                     Cars.Add(car);
+                    Vehicles.Add(car);
                     break;
 
                 case eTypeOfVeichle.FuelMotorCycle:
                 case eTypeOfVeichle.ElectricMotorCycle:
+                    if(Vehicles==null)
+                    {
+                        Vehicles = new List<Vehicle>();
+                    }
                     if(Motors==null)
                     {
                         Motors = new List<MotorBike>();
@@ -141,7 +166,42 @@ namespace Ex03.GarageLogic.Garage
                     MotorBike motor = VeichileFactory.CreateMotorBike(i_TypeOfVeichile);
                     motor.LicenceID = i_LicenceID;
                     motor.Model = i_VehicleModel;
+                    motor.Engine.CurrentEnergy = i_EngineCurrentEnergy;
+                    initTires(motor, i_TiresModel, i_CurrntTireAirPressure);
+                    motor.LiecenceType = i_LicenceType;
+                    motor.EngineCapacity = i_EngineCapacity;
+                    Motors.Add(motor);
+                    Vehicles.Add(motor);
                     break;
+
+                case eTypeOfVeichle.Truck:
+                    if (Vehicles == null)
+                    {
+                        Vehicles = new List<Vehicle>();
+                    }
+                    if (Trucks == null)
+                    {
+                        Trucks = new List<Truck>();
+                    }
+                    Truck truck = VeichileFactory.CreateTruck(i_TypeOfVeichile);
+                    truck.LicenceID = i_LicenceID;
+                    truck.Model = i_VehicleModel;
+                    truck.Engine.CurrentEnergy = i_EngineCurrentEnergy;
+                    initTires(truck, i_TiresModel, i_CurrntTireAirPressure);
+                    truck.IsHazardous = i_IsDangorus;
+                    truck.TruckCapacity = i_TruckCapacity;
+                    Trucks.Add(truck);
+                    Vehicles.Add(truck);
+                    break;
+            }
+        }
+
+        private void initTires(Vehicle i_Vehicle,string i_TiresModel, float i_CurrntTireAirPressure)
+        {
+            foreach(Tire tire in i_Vehicle.Tires)
+            {
+                tire.Brand = i_TiresModel;
+                tire.CurrentPressure = i_CurrntTireAirPressure;
             }
         }
 

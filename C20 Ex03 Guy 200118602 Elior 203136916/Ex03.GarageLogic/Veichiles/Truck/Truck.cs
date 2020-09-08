@@ -59,5 +59,18 @@ namespace Ex03.GarageLogic.Veichiles
         {
             Engine = new FuelEngine(i_FuelType, i_MaxEnergy);
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb=
+                new StringBuilder().AppendLine("Vehicle Full Details:")
+                .AppendLine("Type: "+TypeOfVeichle)
+                .AppendLine("Model: "+Model)
+                .AppendLine("Tires Details:");
+
+            return sb.ToString();
+                
+               
+        }
     }
 }
