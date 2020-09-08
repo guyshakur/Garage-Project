@@ -19,15 +19,15 @@ namespace Ex03.ConsoleUI
 					{
 						case 1:
 							{
-								AddVeichleToGarageConsole.addVeichleToGarage();
+								AddVeichleToGarageConsole.AddVeichleToGarage();
 								break;
 							}
-							/*  case 2:
-								  {
-									  getListOfAllLiecenceInTheGarage();
-									  break;
-								  }
-							  case 3:
+						case 2:
+							{
+								ListOfAllLiecenceInTheGarage.getListOfAllLiecenceInTheGarage();
+								break;
+							}
+							/*  case 3:
 								  {
 									  changeStatusOfCarByLiecenceId();
 									  break;
@@ -86,5 +86,5 @@ namespace Ex03.ConsoleUI
 			}
 		}
 	}
-	
+
 }

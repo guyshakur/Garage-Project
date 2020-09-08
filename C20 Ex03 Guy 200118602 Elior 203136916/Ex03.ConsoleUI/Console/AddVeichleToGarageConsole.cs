@@ -5,47 +5,53 @@ namespace Ex03.ConsoleUI
 {
 	public class AddVeichleToGarageConsole
 	{
-		public static string addVeichleToGarage()
+		public static eTypeOfVeichle AddVeichleToGarage()
 		{
-			string fullNameCusomer, phoneNumberCustomer;
+			//bool correct = false;
+			string fullNameCusomer, phoneNumberCustomer, readTypeOfVeicle;
 			Console.WriteLine("Please enter your full name");
 			fullNameCusomer = Console.ReadLine();
 			Console.WriteLine("Please enter your phone number");
 			phoneNumberCustomer = Console.ReadLine();
-			string readTypeOfVeicle = addVeichleChoice();
-			GarageConsole.checkIfQ(readTypeOfVeicle);
-			if (GarageConsole.checkReadFromUser(readTypeOfVeicle, 5))
+			//do
+			//{
+			readTypeOfVeicle = addVeichleChoice();
+			//GarageConsole.checkIfQ(readTypeOfVeicle);
+			//if (GarageConsole.checkReadFromUser(readTypeOfVeicle, 5))
+			//{
+			//correct = true;
+			switch (int.Parse(readTypeOfVeicle))
 			{
-				switch (int.Parse(readTypeOfVeicle))
-				{
-					case 1:
-						{
-							fuelCar();
-							break;
-						}
-					case 2:
-						{
-							electricCar();
-							break;
-						}
-					case 3:
-						{
-							fuelMotorCycle();
-							break;
-						}
-					case 4:
-						{
-							ElectricMotorCycle();
-							break;
-						}
-					case 5:
-						{
-							truck();
-							break;
-						}
-				}
+				case 1:
+					{
+						fuelCar();
+						break;
+					}
+				case 2:
+					{
+						electricCar();
+						break;
+					}
+				case 3:
+					{
+						fuelMotorCycle();
+						break;
+					}
+				case 4:
+					{
+						ElectricMotorCycle();
+						break;
+					}
+				case 5:
+					{
+						truck();
+						break;
+					}
 			}
-			return readTypeOfVeicle;
+			//}
+			//} while (!correct);
+
+			return (eTypeOfVeichle)int.Parse(readTypeOfVeicle);
 		}
 
 		private static void fuelCar()
@@ -132,9 +138,9 @@ namespace Ex03.ConsoleUI
 			string tiresModel = Console.ReadLine();
 			Console.WriteLine("Please enter Tires Current pressure of the car (float)");
 			float tiresCurrentPressure = float.Parse(Console.ReadLine());
-			Console.WriteLine("Please enter Does contains danger matirials(Y/N");
+			Console.WriteLine("Please enter Does contains danger matirials(Y/N)");
 			String read = Console.ReadLine();
-			bool isDanger = read=="Y" || read == "y";
+			bool isDanger = read == "Y" || read == "y";
 			Console.WriteLine("Please enter engine capacity of the car(cc)");
 			float engineCapacity = float.Parse(Console.ReadLine());
 			//Car c = new Car();
@@ -154,6 +160,7 @@ namespace Ex03.ConsoleUI
 			do
 			{
 				readFromUser = Console.ReadLine();
+				GarageConsole.checkIfQ(readFromUser);
 			} while (!GarageConsole.checkReadFromUser(readFromUser, 5));
 			return readFromUser;
 
