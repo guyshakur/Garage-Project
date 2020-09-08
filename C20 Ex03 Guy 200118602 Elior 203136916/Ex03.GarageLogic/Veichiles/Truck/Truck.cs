@@ -62,16 +62,10 @@ namespace Ex03.GarageLogic.Veichiles
 
         public override string ToString()
         {
-            StringBuilder sb =
-                new StringBuilder().AppendLine("Vehicle Full Details:")
-                .AppendLine("Type: " + TypeOfVeichle)
-                .AppendLine("Model: " + Model)
-                .AppendLine("Tires Details:");
-
-            foreach (Tire tire in Tires)
-            {
-                sb.AppendLine(tire.ToString());
-            }
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine("Is Hazardous? "+IsHazardous);
+            sb.AppendLine("Truck Capacity: " + TruckCapacity);
 
             return sb.ToString();
         }

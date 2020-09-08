@@ -61,6 +61,18 @@ namespace Ex03.GarageLogic
             }
         }
 
+        public eTypeOfVeichle TypeOfVeichle
+        {
+            get
+            {
+                return m_TypeOfVehicle;
+            }
+            set
+            {
+                m_TypeOfVehicle = value;
+            }
+        }
+
         public float MaxEnergy
         {
             get
@@ -98,9 +110,6 @@ namespace Ex03.GarageLogic
         }
 
         public eTypeOfEngine TypeOfEngine { get; set; }
-
-        public eTypeOfVeichle TypeOfVeichle { get; set; }
-
 
         public override string ToString()
         {

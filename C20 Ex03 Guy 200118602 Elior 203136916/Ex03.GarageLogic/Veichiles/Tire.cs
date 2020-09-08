@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Remoting.Messaging;
+using System.Text;
 
 namespace Ex03.GarageLogic
 {
@@ -76,6 +77,16 @@ namespace Ex03.GarageLogic
                 CurrentPressure += i_AmountOfAirToAdd;
             }
 
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Tire Brand: " + Brand);
+            sb.AppendLine("Tire Max Pressure: " + MaxPressure);
+            sb.AppendLine("tire Current Pressure: " + CurrentPressure);
+
+            return sb.ToString();
         }
 
     }
