@@ -1,18 +1,43 @@
 ﻿using System;
 using Ex03.GarageLogic.Enums;
+using Ex03.GarageLogic.Garage;
 
 namespace Ex03.ConsoleUI
 {
 	public class AddVeichleToGarageConsole
 	{
+		private static string s_FullNameCustomer;
+		private static string s_PhoneNumberCustomer;
+		public static string FullNameCustomer
+		{
+			get
+			{
+				return s_FullNameCustomer;
+			}
+			set
+			{
+				s_FullNameCustomer = value;
+			}
+		}
+		public static string PhoneNumberCustomer
+		{
+			get
+			{
+				return s_PhoneNumberCustomer;
+			}
+			set
+			{
+				s_PhoneNumberCustomer = value;
+			}
+		}
 		public static eTypeOfVeichle AddVeichleToGarage()
 		{
 			//bool correct = false;
-			string fullNameCusomer, phoneNumberCustomer, readTypeOfVeicle;
+			string readTypeOfVeicle;
 			Console.WriteLine("Please enter your full name");
-			fullNameCusomer = Console.ReadLine();
+			FullNameCustomer = Console.ReadLine();
 			Console.WriteLine("Please enter your phone number");
-			phoneNumberCustomer = Console.ReadLine();
+			PhoneNumberCustomer = Console.ReadLine();
 			//do
 			//{
 			readTypeOfVeicle = addVeichleChoice();
@@ -60,17 +85,23 @@ namespace Ex03.ConsoleUI
 			string licenceID = Console.ReadLine();
 			Console.WriteLine("Please enter Model of the car");
 			string model = Console.ReadLine();
-			Console.WriteLine("Please enter current gas amount of the car (float)");
+			Console.WriteLine("Please enter current gas amount of the car (numeric)");
 			float currentGazAmount = float.Parse(Console.ReadLine());
 			Console.WriteLine("please enter Tires Model of the car");
 			string tiresModel = Console.ReadLine();
-			Console.WriteLine("Please enter Tires Current pressure of the car (float)");
+			Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
 			float tiresCurrentPressure = float.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter Color of the car\ngrey->1, green->2, white->3 , red->4");
 			eColors color = (eColors)int.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter doors type of the car");
 			eDoorsType doorsType = (eDoorsType)(int.Parse(Console.ReadLine()) - 1);
 			//Car c = new Car();
+			Garage g = new Garage();
+			g.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
+			g.AddCarAndFillWithDetails(eTypeOfVeichle.FuelCar, licenceID, model
+				, currentGazAmount, tiresModel, tiresCurrentPressure, color,
+				doorsType);
+			
 		}
 		private static void electricCar()
 		{
@@ -78,17 +109,22 @@ namespace Ex03.ConsoleUI
 			string licenceID = Console.ReadLine();
 			Console.WriteLine("Please enter Model of the car");
 			string model = Console.ReadLine();
-			Console.WriteLine("Please enter current hours lefft for battery of the car (float)");
+			Console.WriteLine("Please enter current hours lefft for battery of the car (numeric)");
 			float currentHoursLeftForBattery = float.Parse(Console.ReadLine());
 			Console.WriteLine("please enter Tires Model of the car");
 			string tiresModel = Console.ReadLine();
-			Console.WriteLine("Please enter Tires Current pressure of the car (float)");
+			Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
 			float tiresCurrentPressure = float.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter Color of the car\ngrey->1, green->2, white->3 , red->4");
 			eColors color = (eColors)int.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter doors type of the car");
 			eDoorsType doorsType = (eDoorsType)(int.Parse(Console.ReadLine()) - 1);
 			//Car c = new Car();
+			Garage g = new Garage();
+			g.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
+			g.AddCarAndFillWithDetails(eTypeOfVeichle.ElectricCar, licenceID, model,
+				currentHoursLeftForBattery, tiresModel, tiresCurrentPressure, color,
+				doorsType);
 		}
 		private static void fuelMotorCycle()
 		{
@@ -96,17 +132,21 @@ namespace Ex03.ConsoleUI
 			string licenceID = Console.ReadLine();
 			Console.WriteLine("Please enter Model of the car");
 			string model = Console.ReadLine();
-			Console.WriteLine("Please enter current gas amount of the car (float)");
+			Console.WriteLine("Please enter current gas amount of the car (numeric)");
 			float currentGazAmount = float.Parse(Console.ReadLine());
 			Console.WriteLine("please enter Tires Model of the car");
 			string tiresModel = Console.ReadLine();
-			Console.WriteLine("Please enter Tires Current pressure of the car (float)");
+			Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
 			float tiresCurrentPressure = float.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter licence type of the car\nA->1, A1->2, B1->3 , B2->4");
 			eLiecenceType licenceType = (eLiecenceType)int.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter engine capacity of the car(cc)");
 			float engineCapacity = float.Parse(Console.ReadLine());
 			//Car c = new Car();
+			Garage garage = new Garage();
+			garage.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
+			garage.AddMotorAndFillWithDetails(eTypeOfVeichle.FuelMotorCycle, licenceID,
+				model, currentGazAmount, tiresModel, tiresCurrentPressure, licenceType, engineCapacity);
 		}
 		private static void ElectricMotorCycle()
 		{
@@ -114,17 +154,21 @@ namespace Ex03.ConsoleUI
 			string licenceID = Console.ReadLine();
 			Console.WriteLine("Please enter Model of the car");
 			string model = Console.ReadLine();
-			Console.WriteLine("Please enter current hours lefft for battery of the car (float)");
+			Console.WriteLine("Please enter current hours lefft for battery of the car (numeric)");
 			float currentHoursLeftForBattery = float.Parse(Console.ReadLine());
 			Console.WriteLine("please enter Tires Model of the car");
 			string tiresModel = Console.ReadLine();
-			Console.WriteLine("Please enter Tires Current pressure of the car (float)");
+			Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
 			float tiresCurrentPressure = float.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter licence type of the car\nA->1, A1->2, B1->3 , B2->4");
 			eLiecenceType licenceType = (eLiecenceType)int.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter engine capacity of the car(cc)");
 			float engineCapacity = float.Parse(Console.ReadLine());
 			//Car c = new Car();
+			Garage garage = new Garage();
+			garage.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
+			garage.AddMotorAndFillWithDetails(eTypeOfVeichle.ElectricMotorCycle, licenceID,
+				model, currentHoursLeftForBattery, tiresModel, tiresCurrentPressure, licenceType, engineCapacity);
 		}
 		private static void truck()
 		{
@@ -132,11 +176,11 @@ namespace Ex03.ConsoleUI
 			string licenceID = Console.ReadLine();
 			Console.WriteLine("Please enter Model of the car");
 			string model = Console.ReadLine();
-			Console.WriteLine("Please enter current gas amount of the car (float)");
+			Console.WriteLine("Please enter current gas amount of the car (numeric)");
 			float currentGazAmount = float.Parse(Console.ReadLine());
 			Console.WriteLine("please enter Tires Model of the car");
 			string tiresModel = Console.ReadLine();
-			Console.WriteLine("Please enter Tires Current pressure of the car (float)");
+			Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
 			float tiresCurrentPressure = float.Parse(Console.ReadLine());
 			Console.WriteLine("Please enter Does contains danger matirials(Y/N)");
 			String read = Console.ReadLine();
@@ -144,6 +188,10 @@ namespace Ex03.ConsoleUI
 			Console.WriteLine("Please enter engine capacity of the car(cc)");
 			float engineCapacity = float.Parse(Console.ReadLine());
 			//Car c = new Car();
+			Garage garage = new Garage();
+			garage.AddCustomer(FullNameCustomer, PhoneNumberCustomer, licenceID);
+			garage.AddTruckAndFillWithDetails(eTypeOfVeichle.Truck, licenceID,
+				model, currentGazAmount, tiresModel, tiresCurrentPressure, isDanger, engineCapacity);
 		}
 		private static string addVeichleChoice()
 		{
