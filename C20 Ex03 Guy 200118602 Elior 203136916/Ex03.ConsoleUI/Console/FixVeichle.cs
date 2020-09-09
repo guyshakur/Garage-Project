@@ -126,6 +126,7 @@ for exit (from this menu) press another key");
 					if (read == "y" || read == "Y")
 					{
 						Garage.GetFullEnergy(licenceId);
+						Console.WriteLine("Fuel Car with gas is success");
 					}
 					else
 					{
