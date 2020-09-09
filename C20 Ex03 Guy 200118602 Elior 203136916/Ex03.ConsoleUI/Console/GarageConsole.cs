@@ -79,7 +79,7 @@ namespace Ex03.ConsoleUI
         }
         public static bool checkReadFromUser(string i_Number, int i_MaximumNumber)
         {
-            return (int.TryParse(i_Number, out int result) && (result >= 1 || result <= i_MaximumNumber));
+            return (int.TryParse(i_Number, out int result) && (result >= 1 && result <= i_MaximumNumber));
         }
         public static void checkIfQ(string i_input)
         {
