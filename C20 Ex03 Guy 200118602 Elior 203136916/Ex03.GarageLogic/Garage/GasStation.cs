@@ -63,6 +63,13 @@ namespace Ex03.GarageLogic
             i_Engine.CurrentEnergy += i_AmountToFill;
         }
 
+        
+
+        public static void FillToTheMax(EngineType i_Engine)
+        {
+            i_Engine.CurrentEnergy = i_Engine.MaxEnergy;
+        }
+
         public static void ChargeBattery(EngineType i_Engine,float i_AmountHoursToCharge)
         {
            

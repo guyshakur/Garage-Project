@@ -341,7 +341,7 @@ namespace Ex03.GarageLogic.Garage
                 isExist = true;
                 if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
                 {
-                    if (Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine.TypeOfEngine != eTypeOfEngine.Fuel)
+                    if (Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine.TypeOfEngine != eTypeOfEngine.FUEL)
                     {
                         throw new FormatException("This is Fuel Engine Vehicle");
                     }
@@ -373,6 +373,36 @@ namespace Ex03.GarageLogic.Garage
             }
 
             return isExist;
+        }
+
+        public static void GetFullEnergy(string i_LiecenceID)
+        {
+            GasStation.FillToTheMax(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine);
+        }  
+
+        public string  GetAllVehicleDetailIfExist(string i_LiecenceID)
+        {
+            StringBuilder sb=new StringBuilder();
+            if (IsLicenceIDExistInGarage(i_LiecenceID))
+            {
+                
+                if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
+                {
+                    sb.AppendLine("          Vehicle Details:");
+                    sb.AppendLine( Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).ToString());
+                    sb.AppendLine();
+                    sb.AppendLine("Contact details");
+                    sb.AppendLine();
+                    sb.AppendLine(Customers.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).ToString());
+                }
+                else
+                {
+                    sb.AppendLine("vehicle with this licence does not exist in the garage.");
+                }
+
+            }
+
+            return sb.ToString();
         }
     }
 
