@@ -16,13 +16,7 @@ namespace Ex03.GarageLogic
             //m_TypeOfEngine = eTypeOfEngine.FUEL;
         }
 
-        public override void FillEnergy()
-        {
-            GasStation gasStation = new GasStation();
-
-            GasStation.FillFuel(this);
-        }
-
+        
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

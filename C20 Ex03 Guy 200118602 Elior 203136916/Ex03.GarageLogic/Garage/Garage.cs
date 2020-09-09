@@ -3,6 +3,7 @@ using Ex03.GarageLogic.Model;
 using Ex03.GarageLogic.Veichiles;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -332,5 +333,38 @@ namespace Ex03.GarageLogic.Garage
 
         }
 
+        public static bool FillVehicleWithGasIfExist(string i_LiecenceID, eFuelType i_FuelType, float i_AmountToFill)
+        {
+            bool isExist = false;
+            if (IsLicenceIDExistInGarage(i_LiecenceID))
+            {
+                isExist = true;
+                if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
+                {
+                    GasStation.FillFuel(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine, i_FuelType, i_AmountToFill);
+                }
+
+            }
+
+            return isExist;
+        }
+
+        public static bool ChargeVehicleIfExist(string i_LiecenceID, float i_AmountToCharge)
+        {
+            bool isExist = false;
+            if (IsLicenceIDExistInGarage(i_LiecenceID))
+            {
+                isExist = true;
+                if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
+                {
+                    GasStation.ChargeBattery(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine, i_AmountToCharge);
+                }
+
+            }
+
+            return isExist;
+        }
     }
+
 }
+

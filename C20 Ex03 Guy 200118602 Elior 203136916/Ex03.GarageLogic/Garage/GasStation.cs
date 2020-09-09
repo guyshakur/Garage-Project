@@ -37,19 +37,19 @@ namespace Ex03.GarageLogic
         }
 
         //overload methods 
-        public void SetForEnergy(eFuelType i_FuelType, float i_Liters)
-        {
-            m_FuelType = i_FuelType;
-            m_AmountOfEnergy = i_Liters;
-        }
+        //public void SetForEnergy(eFuelType i_FuelType, float i_Liters)
+        //{
+        //    m_FuelType = i_FuelType;
+        //    m_AmountOfEnergy = i_Liters;
+        //}
 
-        public void SetForEnergy(float i_HoursToFill)
-        {
-            m_FuelType = null;
-            m_AmountOfEnergy = i_HoursToFill;
-        }
+        //public void SetForEnergy(float i_HoursToFill)
+        //{
+        //    m_FuelType = null;
+        //    m_AmountOfEnergy = i_HoursToFill;
+        //}
 
-        public void FillFuel(EngineType i_Engine,eFuelType i_FuelType,float i_AmountToFill)
+        public static void FillFuel(EngineType i_Engine,eFuelType i_FuelType,float i_AmountToFill)
         {
             if (i_FuelType!= i_Engine.FuelType)
             {
@@ -63,7 +63,7 @@ namespace Ex03.GarageLogic
             i_Engine.CurrentEnergy += i_AmountToFill;
         }
 
-        public void ChargeBattery(EngineType i_Engine,float i_AmountHoursToCharge)
+        public static void ChargeBattery(EngineType i_Engine,float i_AmountHoursToCharge)
         {
            
             if (i_Engine.CurrentEnergy + i_AmountHoursToCharge > i_Engine.MaxEnergy)

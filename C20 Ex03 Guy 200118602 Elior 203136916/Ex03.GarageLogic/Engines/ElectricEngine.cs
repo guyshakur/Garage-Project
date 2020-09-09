@@ -30,12 +30,7 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public override void FillEnergy()
-        {
-            GasStation gasStation = new GasStation();
-            gasStation.ChargeBattery(this);
-
-        }
+        
 
         public override string ToString()
         {
