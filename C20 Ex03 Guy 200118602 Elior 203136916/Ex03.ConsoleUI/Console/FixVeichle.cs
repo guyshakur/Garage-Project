@@ -50,10 +50,11 @@ for exit (from this menu) press another key");
 				do
 				{
 					Console.WriteLine("enter hours of charging");
-				} while (float.TryParse(Console.ReadLine(), out amountToCharge));
+				} while (!float.TryParse(Console.ReadLine(), out amountToCharge));
 				try
 				{
 					Garage.ChargeVehicleIfExist(licenceId, amountToCharge);
+					Console.WriteLine("Your battery is charge with {0} hours",amountToCharge);
 				}
 				catch (ValueOutOfRangeException ofe) //if you fill over
 				{
@@ -67,6 +68,7 @@ for exit (from this menu) press another key");
 					if (read == "y" || read == "Y")
 					{
 						Garage.GetFullEnergy(licenceId);
+						Console.WriteLine("Your battery is fully charged.");
 					}
 					else
 					{
@@ -75,10 +77,7 @@ for exit (from this menu) press another key");
 				}
 				catch (FormatException fe)//if choose gas
 				{
-					Console.WriteLine(
-@"{0}
-your veichiles is gaz and not electric.
-we return to main menu.", fe.Message);
+					Console.WriteLine(fe.Message);
 				}
 				finally
 				{
@@ -89,6 +88,8 @@ we return to main menu.", fe.Message);
 			else
 			{
 				Console.WriteLine("There are no veichle with this Liecence ID");
+				Console.WriteLine("Press any key for exit to menu");
+				Console.ReadLine();
 			}
 		}
 
@@ -116,6 +117,7 @@ we return to main menu.", fe.Message);
 				try
 				{
 					Garage.FillVehicleWithGasIfExist(licenceId, (eFuelType)gazolineInt, amount);
+					Console.WriteLine("The vehicle will be refueled with {0} liter", amount);
 				}
 				catch (ValueOutOfRangeException ofe)//if you fill over 
 				{
@@ -129,6 +131,7 @@ we return to main menu.", fe.Message);
 					if (read == "y" || read == "Y")
 					{
 						Garage.GetFullEnergy(licenceId);
+						Console.WriteLine("The vehicle will be fully refueled");
 					}
 					else
 					{
@@ -137,17 +140,11 @@ we return to main menu.", fe.Message);
 				}
 				catch (FormatException fe)//if choose Electric
 				{
-					Console.WriteLine(
-@"{0}
-your veichiles is electric and not a gaz.
-we return to main menu.", fe.Message);
+					Console.WriteLine(fe.Message);
 				}
 				catch (ArgumentException ae)//if choose type of gaz Different
 				{
-					Console.WriteLine(
-@"{0}
-Your gaz type is diffrent from what you choose
-please try again", ae.Message);
+					Console.WriteLine(ae.Message);
 					fuelCarWithGas();
 				}
 				finally
@@ -159,6 +156,8 @@ please try again", ae.Message);
 			else
 			{
 				Console.WriteLine("There are no veichle with this Liecence ID");
+				Console.WriteLine("Press any key for exit to menu");
+				Console.ReadLine();
 			}
 		}
 
