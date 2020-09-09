@@ -65,7 +65,12 @@ namespace Ex03.ConsoleUI
 				{
 					do
 					{
-						Console.WriteLine("Please enter Color of the car\ngrey->1, green->2, white->3 , red->4");
+						Console.WriteLine(
+@"Please enter Color of the car
+1. grey
+2. green
+3. white
+4. red");
 					} while (!(int.TryParse(Console.ReadLine(), out intColor) && intColor >= 1 && intColor <= 4));
 					color = (eColors)intColor;
 				}
@@ -74,7 +79,12 @@ namespace Ex03.ConsoleUI
 				{
 					do
 					{
-						Console.WriteLine("Please enter licence type of the car\nA->1, A1->2, B1->3 , B2->4");
+						Console.WriteLine(
+@"Please enter licence type of the car
+1. A
+2. A1
+3. B1
+4. B2");
 					} while (!(int.TryParse(Console.ReadLine(), out intLicenceType) && intLicenceType >= 1 && intLicenceType <= 4));
 					liecenceType = (eLiecenceType)intLicenceType;
 				}
