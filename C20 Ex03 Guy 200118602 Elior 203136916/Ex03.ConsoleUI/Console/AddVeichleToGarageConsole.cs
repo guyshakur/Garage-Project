@@ -8,12 +8,12 @@ namespace Ex03.ConsoleUI
 {
 	public class AddVeichleToGarageConsole
 	{
-		public static eTypeOfVeichle AddVeichleToGarage()
+		public static eTypeOfVeichle AddVeichleToGarageMenu()
 		{
-			
+
 			string phoneNumber, fullName;
 			string licenceID, model, tiresModel;
-			float currentGazAmountOrHoursLeftForBattery, tiresCurrentPressure, capacity=0;
+			float currentGazAmountOrHoursLeftForBattery, tiresCurrentPressure, capacity = 0;
 			int intColor, intDoorsType, readTypeOfVeicle, intLicenceType;
 			bool conrainsIsDanger = false;
 			eColors color = eColors.Gray;
@@ -24,12 +24,21 @@ namespace Ex03.ConsoleUI
 			readTypeOfVeicle = int.Parse(addVeichleChoice());
 			Console.WriteLine("Please enter licence id of the car:");
 			licenceID = Console.ReadLine();
+
 			if (!Garage.IsLicenceIDExistInGarage(licenceID))
 			{
-				Console.WriteLine("Please enter your full name");
-				fullName = Console.ReadLine();
-				Console.WriteLine("Please enter your phone number");
-				phoneNumber = Console.ReadLine();
+				do
+				{
+					Console.WriteLine("Please enter your full name.(only letters)");
+					fullName = Console.ReadLine();
+				} while (String.IsNullOrWhiteSpace(fullName) || isStringContainsNumsOrSigns(fullName));
+
+				do
+				{
+					Console.WriteLine("Please enter your phone number(numbers only no spaces)");
+					phoneNumber = Console.ReadLine();
+				} while (String.IsNullOrWhiteSpace(phoneNumber) || !isStringContainsOnlyNumerics(phoneNumber));
+
 				Console.WriteLine("Please enter Model of the car");
 				model = Console.ReadLine();
 				do
@@ -38,7 +47,7 @@ namespace Ex03.ConsoleUI
 						(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.FuelMotorCycle ||    //3
 						(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.Truck)               //5
 					{
-						Console.WriteLine("Please enter current gas amount of the car (numeric)");
+						Console.WriteLine("Please enter current gas amount of the car (Numeric)");
 					}
 					else                                                                        //2,4
 					{
@@ -109,11 +118,11 @@ namespace Ex03.ConsoleUI
 						Console.ReadLine();
 					}
 					else if ((eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.FuelMotorCycle ||   //3
-					(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricMotorCycle)			//4
+					(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricMotorCycle)          //4
 					{
 						garage.AddMotorAndFillWithDetails((eTypeOfVeichle)readTypeOfVeicle,
 							licenceID, model, currentGazAmountOrHoursLeftForBattery,
-							tiresModel, tiresCurrentPressure, liecenceType, capacity);
+							tiresModel, tiresCurrentPressure, liecenceType, (int)capacity);
 						Console.WriteLine("added a new motorecycle is succeess");
 						Console.WriteLine("for exit to main menu press any key");
 						Console.ReadLine();
@@ -122,14 +131,16 @@ namespace Ex03.ConsoleUI
 					{
 						garage.AddTruckAndFillWithDetails(eTypeOfVeichle.Truck, licenceID,
 							model, currentGazAmountOrHoursLeftForBattery, tiresModel,
-							tiresCurrentPressure, conrainsIsDanger,	capacity);
+							tiresCurrentPressure, conrainsIsDanger, capacity);
 						Console.WriteLine("added a new truck is succeess");
+						Console.WriteLine("for exit to main menu press any key");
+						Console.ReadLine();
 					}
 					garage.AddCustomer(fullName, phoneNumber, licenceID);
 					Console.WriteLine("for exit to main menu press any key");
 					Console.ReadLine();
 				}
-				catch(ValueOutOfRangeException ex)
+				catch (ValueOutOfRangeException ex)
 				{
 					Console.WriteLine();
 					Console.WriteLine();
@@ -137,37 +148,64 @@ namespace Ex03.ConsoleUI
 					Console.WriteLine("added a new car/motorcycle/truck is failed.\nto try again press any key");
 					Console.ReadLine();
 					//System.Threading.Thread.Sleep(1500);
-					return AddVeichleToGarage();
+					return AddVeichleToGarageMenu();
 				}
 
 			}
 			else
 			{
-				Console.WriteLine("The Licence ID is exists");
+				Console.WriteLine("The Licence ID is exists - changing the status vehicle to FIXED");
+
 				Console.WriteLine("for exit to main menu press any key");
 				Console.ReadLine();
 			}
 			System.Threading.Thread.Sleep(1500);
 			return (eTypeOfVeichle)readTypeOfVeicle;
 		}
-		
 
-private static string addVeichleChoice()
+		private static bool isStringContainsOnlyNumerics(string i_String)
 		{
-			Console.Clear();
-			Console.WriteLine("     Add Veichle To Garage");
-			Console.WriteLine("in any location if you press on key 'Q' you return to main menu");
-			Console.WriteLine("please choose:\n" +
-				"1. Fuel Car\n" +
-				"2. Electric Car\n" +
-				"3. Fuel MotorCycle\n" +
-				"4. Electric MotorCycle\n" +
-				"5. Truck\n");
+			bool isStringOnlyNumerics = true;
+			foreach (char c in i_String)
+			{
+				if (!Char.IsDigit(c))
+				{
+					isStringOnlyNumerics = false;
+					break;
+				}
+			}
+			return isStringOnlyNumerics;
+		}
+
+		private static bool isStringContainsNumsOrSigns(string i_String)
+		{
+			bool isContainsNumberOrSigns = false;
+			foreach (char c in i_String)
+			{
+				if (!Char.IsLetter(c) && c != ' ')
+				{
+					isContainsNumberOrSigns = true;
+				}
+			}
+			return isContainsNumberOrSigns;
+		}
+
+
+		private static string addVeichleChoice()
+		{
+			
 			string readFromUser;
 			do
 			{
+				Console.Clear();
+				Console.WriteLine("     Add Veichle To Garage");
+				Console.WriteLine("please choose:\n" +
+					"1. Fuel Car\n" +
+					"2. Electric Car\n" +
+					"3. Fuel MotorCycle\n" +
+					"4. Electric MotorCycle\n" +
+					"5. Truck\n");
 				readFromUser = Console.ReadLine();
-				GarageConsole.checkIfQ(readFromUser);
 			} while (!GarageConsole.checkReadFromUser(readFromUser, 5));
 			return readFromUser;
 

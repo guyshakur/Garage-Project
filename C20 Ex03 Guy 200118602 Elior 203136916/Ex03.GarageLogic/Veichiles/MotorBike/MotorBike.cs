@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic.Model
     public abstract class MotorBike:Vehicle
     {
         private eLiecenceType m_LiecenceType;
-        private float m_EngineCapacity;
+        private int m_EngineCapacity;
         private eFuelType ? m_FuelType;
 
         public eLiecenceType LiecenceType
@@ -25,7 +25,7 @@ namespace Ex03.GarageLogic.Model
             }
         }
 
-        public float EngineCapacity
+        public int EngineCapacity
         {
             get
             {
