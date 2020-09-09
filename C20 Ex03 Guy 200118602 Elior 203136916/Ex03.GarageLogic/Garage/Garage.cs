@@ -341,6 +341,11 @@ namespace Ex03.GarageLogic.Garage
                 isExist = true;
                 if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
                 {
+                    if (Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine.TypeOfEngine != eTypeOfEngine.Fuel)
+                    {
+                        throw new FormatException("This is Fuel Engine Vehicle");
+                    }
+
                     GasStation.FillFuel(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine, i_FuelType, i_AmountToFill);
                 }
 
@@ -357,6 +362,11 @@ namespace Ex03.GarageLogic.Garage
                 isExist = true;
                 if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
                 {
+                    if (Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine.TypeOfEngine != eTypeOfEngine.ELECTRIC)
+                    {
+                        throw new FormatException("This is Electric Engine Vehicle");
+                    }
+
                     GasStation.ChargeBattery(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine, i_AmountToCharge);
                 }
 
