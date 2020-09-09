@@ -50,10 +50,11 @@ for exit (from this menu) press another key");
 				do
 				{
 					Console.WriteLine("enter hours of charging");
-				} while (float.TryParse(Console.ReadLine(), out amountToCharge));
+				} while (!float.TryParse(Console.ReadLine(), out amountToCharge));
 				try
 				{
 					Garage.ChargeVehicleIfExist(licenceId, amountToCharge);
+					Console.WriteLine("Your battery is charge with {0} hours",amountToCharge);
 				}
 				catch (ValueOutOfRangeException ofe) //if you fill over
 				{
@@ -67,6 +68,7 @@ for exit (from this menu) press another key");
 					if (read == "y" || read == "Y")
 					{
 						Garage.GetFullEnergy(licenceId);
+						Console.WriteLine("Your battery is fully charged.");
 					}
 					else
 					{
@@ -86,6 +88,8 @@ for exit (from this menu) press another key");
 			else
 			{
 				Console.WriteLine("There are no veichle with this Liecence ID");
+				Console.WriteLine("Press any key for exit to menu");
+				Console.ReadLine();
 			}
 		}
 
@@ -113,6 +117,7 @@ for exit (from this menu) press another key");
 				try
 				{
 					Garage.FillVehicleWithGasIfExist(licenceId, (eFuelType)gazolineInt, amount);
+					Console.WriteLine("The vehicle will be refueled with {0} liter", amount);
 				}
 				catch (ValueOutOfRangeException ofe)//if you fill over 
 				{
@@ -126,7 +131,7 @@ for exit (from this menu) press another key");
 					if (read == "y" || read == "Y")
 					{
 						Garage.GetFullEnergy(licenceId);
-						Console.WriteLine("Fuel Car with gas is success");
+						Console.WriteLine("The vehicle will be fully refueled");
 					}
 					else
 					{
@@ -151,6 +156,8 @@ for exit (from this menu) press another key");
 			else
 			{
 				Console.WriteLine("There are no veichle with this Liecence ID");
+				Console.WriteLine("Press any key for exit to menu");
+				Console.ReadLine();
 			}
 		}
 
