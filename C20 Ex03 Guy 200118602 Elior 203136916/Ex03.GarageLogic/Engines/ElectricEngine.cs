@@ -17,19 +17,6 @@ namespace Ex03.GarageLogic
             m_TypeOfEngine = eTypeOfEngine.ELECTRIC;
         }
 
-        public float MaxBattryHours
-        {
-            get
-            {
-                return m_MaxBattryHours;
-            }
-
-            set
-            {
-                m_MaxBattryHours = value;
-            }
-        }
-
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder()

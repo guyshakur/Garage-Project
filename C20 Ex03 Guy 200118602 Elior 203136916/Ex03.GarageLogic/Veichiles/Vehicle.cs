@@ -9,7 +9,6 @@ namespace Ex03.GarageLogic
         private string m_Model;
         private string m_LicenceID;
         private List<Tire> m_Tires;
-        private EngineType m_EngineType;
         private eTypeOfVeichle m_TypeOfVehicle;
 
         public string Model
