@@ -51,10 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Console\ChangeStatus.cs" />
+    <Compile Include="Console\FixVeichle.cs" />
     <Compile Include="Console\AddVeichleToGarageConsole.cs" />
     <Compile Include="Console\GarageConsole.cs" />
-    <Compile Include="Console\ListOfAllLiecenceInTheGarage.cs" />
+    <Compile Include="Console\DetaileOfVeichle.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

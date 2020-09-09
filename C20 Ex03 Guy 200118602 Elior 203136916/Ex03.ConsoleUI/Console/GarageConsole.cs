@@ -20,37 +20,41 @@ namespace Ex03.ConsoleUI
                     switch (int.Parse(read))
                     {
                         case 1:
-                            AddVeichleToGarageConsole.AddVeichleToGarageMenu();
-                            break;
-
+                            {
+                                AddVeichleToGarageConsole.AddVeichleToGarageMenu();
+                                break;
+                            }
                         case 2:
-                            ListOfAllLiecenceInTheGarage.getListOfAllLiecenceInTheGarage();
-                            break;
-
+                            {
+                                DetaileOfVeichle.getListOfAllLiecenceInTheGarage();
+                                break;
+                            }
                         case 3:
-                            ChangeStatus.ChangeVehicleStatus();
-                            break;
-
-                            //case 4:
-                            // {
-                            //  inflateTires();
-                            //  break;
-                            // }
-                            //case 5:
-                            // {
-                            //  fuelCarWithGas();
-                            //  break;
-                            // }
-                            //case 6:
-                            // {
-                            //  7.getFullInfoAboutVeichleByLiecenceID();
-                            //  break;
-                            // }
-                            //case 7:
-                            // {
-                            //  addVeichleToGarage(out fullNameCustomer, out phoneCustomer);
-                            //  break;
-                            // }
+                            {
+                                FixVeichle.ChangeVehicleStatus();
+                                break;
+                            }
+                        case 4:
+                            {
+                                FixVeichle.inflateTires();
+                                break;
+                            }
+                        case 5:
+                            {
+                                FixVeichle.fuelCarWithGas();
+                                break;
+                            }
+                        case 6:
+                            {
+                                FixVeichle.chargeBattery();
+                                break;
+                            }
+                        case 7:
+                            {
+                                DetaileOfVeichle.getFullInfoAboutVeichleByLiecenceID();
+                                //addVeichleToGarage(out fullNameCustomer, out phoneCustomer);
+                                break;
+                            }
                     }
                 }
             } while (true);

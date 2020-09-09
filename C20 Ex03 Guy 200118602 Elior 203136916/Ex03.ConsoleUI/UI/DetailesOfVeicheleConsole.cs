@@ -4,7 +4,7 @@ using Ex03.GarageLogic.Enums;
 
 namespace Ex03.ConsoleUI
 {
-	class ListOfAllLiecenceInTheGarage
+	class DetailesOfVeicheleConsole
 	{
 		public static void getListOfAllLiecenceInTheGarage()
 		{
@@ -18,7 +18,7 @@ namespace Ex03.ConsoleUI
 						"1. Fixed\n" +
 						"2. Fixing\n" +
 						"3. Paid\n" +
-						"for exit (from this menu) press another key");
+						"for exit (from this menu) press any another key");
 					if (int.TryParse(Console.ReadLine(), out int result) && result > 0 && result < 4)
 					{
 						Console.WriteLine(Garage.GetAllfileredLiecenceByVehicleStatus((eVeichileStatus)result));
