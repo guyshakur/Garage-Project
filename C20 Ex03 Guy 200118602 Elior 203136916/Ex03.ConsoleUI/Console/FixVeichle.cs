@@ -78,7 +78,7 @@ for exit (from this menu) press another key");
 					Console.WriteLine(
 @"your veichiles is gaz and not electric.
 we return to main menu.");
-				} 
+				}
 				finally
 				{
 					Console.WriteLine("Press any key for exit to menu");
@@ -93,16 +93,70 @@ we return to main menu.");
 
 		internal static void fuelCarWithGas()
 		{
-			try
+			int gazolineInt;
+			Console.WriteLine("Insert Liecence Id of Vehicle");
+			string licenceId = Console.ReadLine();
+			if (Garage.IsLicenceIDExistInGarage(licenceId))
 			{
-
+				do
+				{
+					Console.WriteLine(
+	@"enter the gazoline type
+1. Octan95
+2. Octan96
+3. Octan98
+4. Soler");
+				} while (int.TryParse(Console.ReadLine(), out gazolineInt) && gazolineInt>=1 && gazolineInt<=4);
+				float amount;
+				do
+				{
+					Console.WriteLine("enter amount of litters");
+				} while (float.TryParse(Console.ReadLine(), out amount));
+				try
+				{ 
+					Garage.FillVehicleWithGasIfExist(licenceId,(eFuelType)gazolineInt, amount);
+				}
+				catch (ValueOutOfRangeException ofe)//if you fill over 
+				{
+					Console.WriteLine(ofe.Message);
+					string read;
+					do
+					{
+						Console.WriteLine("You want to fill full(y / n)?");
+						read = Console.ReadLine();
+					} while (!(read == "Y" || read == "y" || read == "n" || read == "N"));
+					if (read == "y" || read == "Y")
+					{
+						Garage.GetFullEnergy(licenceId);
+					}
+					else
+					{
+						fuelCarWithGas();
+					}
+				}
+				catch (FormatException)//if choose Electric
+				{
+					Console.WriteLine(
+@"your veichiles is electric and not a gaz.
+we return to main menu.");
+				}
+				catch (ArgumentException)//if choose type of gaz Different
+				{
+					Console.WriteLine(
+@"Your gaz type is diffrent from what you choose
+please try again");
+					fuelCarWithGas();
+				}
+				finally
+				{
+					Console.WriteLine("Press any key for exit to menu");
+					Console.ReadLine();
+				}
 			}
-			catch (ValueOutOfRangeException)//if you fill over 
-			{ }
-			catch (FormatException)//if choose Electric
-			{ }
-			catch (ArgumentException)//if choose type of gaz Different
-			{ }
+			else
+			{
+				Console.WriteLine("There are no veichle with this Liecence ID");
+			}
 		}
 
 		internal static void inflateTires()
