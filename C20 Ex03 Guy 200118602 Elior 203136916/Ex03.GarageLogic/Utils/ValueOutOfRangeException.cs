@@ -17,11 +17,11 @@ namespace Ex03.GarageLogic
             {
                 return m_MaxValue;
             }
+
             set
             {
                 m_MaxValue = value;
             }
-
         }
 
         public float MinValue
@@ -39,12 +39,9 @@ namespace Ex03.GarageLogic
 
         public ValueOutOfRangeException(string i_NameOfValue, float i_MinValue, float i_MaxValue)
             : base(i_NameOfValue + " " + "must be in the range of " + 0f + " to " + i_MaxValue)
-
         {
             MinValue = i_MinValue;
             m_MaxValue = i_MinValue;
-
         }
-
     }
 }

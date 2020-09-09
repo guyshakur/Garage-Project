@@ -46,6 +46,7 @@ namespace Ex03.GarageLogic.Garage
                 m_Vehicles = value;
             }
         }
+
         public List<Car> Cars
         {
             get
@@ -134,6 +135,7 @@ namespace Ex03.GarageLogic.Garage
                     index = i;
                 }
             }
+
             return index;
         }
 
@@ -143,6 +145,7 @@ namespace Ex03.GarageLogic.Garage
             {
                 Customers = new List<Customer>();
             }
+
             Customer customer = new Customer(i_FullName, i_PhoneNumber, i_LicenceId);
             customer.Status = eVeichileStatus.FIXING;
             Customers.Add(customer);
@@ -158,10 +161,12 @@ namespace Ex03.GarageLogic.Garage
                     {
                         Vehicles = new List<Vehicle>();
                     }
+
                     if (Cars == null)
                     {
                         Cars = new List<Car>();
                     }
+
                     Car car = VeichileFactory.CreateCar(i_TypeOfVeichile);
                     car.LicenceID = i_LicenceID;
                     car.Model = i_VehicleModel;
@@ -185,10 +190,12 @@ namespace Ex03.GarageLogic.Garage
                     {
                         Vehicles = new List<Vehicle>();
                     }
+
                     if (Motors == null)
                     {
                         Motors = new List<MotorBike>();
                     }
+
                     MotorBike motor = VeichileFactory.CreateMotorBike(i_TypeOfVeichile);
                     motor.LicenceID = i_LicenceID;
                     motor.Model = i_VehicleModel;
@@ -211,10 +218,12 @@ namespace Ex03.GarageLogic.Garage
                     {
                         Vehicles = new List<Vehicle>();
                     }
+
                     if (Trucks == null)
                     {
                         Trucks = new List<Truck>();
                     }
+
                     Truck truck = VeichileFactory.CreateTruck(i_TypeOfVeichile);
                     truck.LicenceID = i_LicenceID;
                     truck.Model = i_VehicleModel;
@@ -267,11 +276,10 @@ namespace Ex03.GarageLogic.Garage
                 foreach (Customer customer in Customers)
                 {
                     sb.AppendLine(customer.LicenceIDOfCar + " Status - " + customer.Status);
-
                 }
             }
-            return sb.ToString();
 
+            return sb.ToString();
         }
 
         public static string GetAllfileredLiecenceByVehicleStatus(eVeichileStatus i_VehicleStatus)
@@ -292,6 +300,7 @@ namespace Ex03.GarageLogic.Garage
                     sb.AppendLine("There Are No Vehicles With That Status");
                 }
             }
+
             return sb.ToString();
         }
 
@@ -305,7 +314,6 @@ namespace Ex03.GarageLogic.Garage
                 {
                     Customers.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Status = i_VehicleStatus;
                 }
-
             }
 
             return isExist;
@@ -323,12 +331,10 @@ namespace Ex03.GarageLogic.Garage
                     {
                         tire.InflateTire(tire.MaxPressure - tire.CurrentPressure);
                     }
-
                 }
-
             }
-            return isExist;
 
+            return isExist;
         }
 
         public static bool FillVehicleWithGasIfExist(string i_LiecenceID, eFuelType i_FuelType, float i_AmountToFill)
@@ -346,7 +352,6 @@ namespace Ex03.GarageLogic.Garage
 
                     GasStation.FillFuel(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine, i_FuelType, i_AmountToFill);
                 }
-
             }
 
             return isExist;
@@ -367,7 +372,6 @@ namespace Ex03.GarageLogic.Garage
 
                     GasStation.ChargeBattery(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine, i_AmountToCharge);
                 }
-
             }
 
             return isExist;
@@ -396,11 +400,9 @@ namespace Ex03.GarageLogic.Garage
                 {
                     sb.AppendLine("vehicle with this licence does not exist in the garage.");
                 }
-
             }
 
             return sb.ToString();
         }
     }
-
 }

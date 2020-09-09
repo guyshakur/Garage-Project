@@ -24,7 +24,6 @@ namespace Ex03.GarageLogic
             sb.AppendLine("The Current Fuel That Left Is " + CurrentEnergy + " Litters");
 
             return sb.ToString();
-
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Ex03.GarageLogic
             {
                 m_Model = value;
             }
-
         }
 
         public string LicenceID
@@ -88,7 +87,7 @@ namespace Ex03.GarageLogic
                 .AppendLine("Engine Details: ")
                 .AppendLine(Engine.ToString())
                 .AppendLine("Tires Details:");
-
+            
             foreach (Tire tire in Tires)
             {
                 sb.AppendLine(tire.ToString());
@@ -97,5 +96,4 @@ namespace Ex03.GarageLogic
             return sb.ToString();
         }
     }
-
 }

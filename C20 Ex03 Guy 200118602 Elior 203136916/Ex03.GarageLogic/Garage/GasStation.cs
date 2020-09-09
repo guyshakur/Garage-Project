@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Ex03.GarageLogic.Enums;
 
 namespace Ex03.GarageLogic
-
 {
     public class GasStation
     {
@@ -31,6 +30,7 @@ namespace Ex03.GarageLogic
             {
                 throw new ArgumentException("The fuel type is not the correct one. the correct one is: " + i_Engine.FuelType.ToString());
             }
+
             if (i_Engine.CurrentEnergy + i_AmountToFill > i_Engine.MaxEnergy)
             {
                 throw new ValueOutOfRangeException("amount of gas", 0, i_Engine.MaxEnergy - i_Engine.CurrentEnergy);
@@ -54,5 +54,4 @@ namespace Ex03.GarageLogic
             i_Engine.CurrentEnergy += i_AmountHoursToCharge;
         }
     }
-
 }

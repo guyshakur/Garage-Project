@@ -15,6 +15,5 @@ namespace Ex03.GarageLogic
             Engine = new ElectricEngine(i_MaxEnergy);
             Engine.TypeOfEngine = eTypeOfEngine.ELECTRIC;
         }
-
     }
 }

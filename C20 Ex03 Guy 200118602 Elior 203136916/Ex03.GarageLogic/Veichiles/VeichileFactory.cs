@@ -75,7 +75,6 @@ namespace Ex03.GarageLogic.Veichiles
             }
 
             return truck;
-
         }
 
         private static List<Tire> initTires(int i_NumberOfTires, float i_MaxPressure)

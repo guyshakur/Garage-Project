@@ -23,6 +23,7 @@ namespace Ex03.GarageLogic
             {
                 return m_MaxBattryHours;
             }
+
             set
             {
                 m_MaxBattryHours = value;

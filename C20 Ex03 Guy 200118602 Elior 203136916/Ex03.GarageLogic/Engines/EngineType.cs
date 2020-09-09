@@ -20,6 +20,7 @@ namespace Ex03.GarageLogic
             {
                 return m_FuelType;
             }
+
             set
             {
                 m_FuelType = value;
@@ -32,6 +33,7 @@ namespace Ex03.GarageLogic
             {
                 return m_MaxEnergy;
             }
+
             set
             {
                 m_MaxEnergy = value;
@@ -44,6 +46,7 @@ namespace Ex03.GarageLogic
             {
                 return m_CurrentEnergy;
             }
+
             set
             {
                 if (value > MaxEnergy)
@@ -63,6 +66,7 @@ namespace Ex03.GarageLogic
             {
                 return m_TypeOfEngine;
             }
+
             set
             {
                 m_TypeOfEngine = value;

@@ -40,9 +40,7 @@ namespace Ex03.GarageLogic
                 {
                     m_CurrentPressure = value;
                 }
-
             }
-
         }
 
         public float MaxPressure
@@ -61,7 +59,6 @@ namespace Ex03.GarageLogic
         public Tire(float i_MaxPressure)
         {
             MaxPressure = i_MaxPressure;
-
         }
 
         public void InflateTire(float i_AmountOfAirToAdd)
@@ -74,7 +71,6 @@ namespace Ex03.GarageLogic
             {
                 CurrentPressure += i_AmountOfAirToAdd;
             }
-
         }
 
         public override string ToString()
@@ -86,6 +82,5 @@ namespace Ex03.GarageLogic
 
             return sb.ToString();
         }
-
     }
 }
