@@ -16,6 +16,7 @@ namespace Ex03.GarageLogic
             {
                 return m_Brand;
             }
+
             set
             {
                 m_Brand = value;
@@ -28,17 +29,18 @@ namespace Ex03.GarageLogic
             {
                 return m_CurrentPressure;
             }
+
             set
             {
-                if(value>MaxPressure)
+                if (value > MaxPressure)
                 {
-                    throw new ValueOutOfRangeException("Max Pressure",0, MaxPressure);
+                    throw new ValueOutOfRangeException("Max Pressure", 0, MaxPressure);
                 }
                 else
                 {
                     m_CurrentPressure = value;
                 }
-                
+
             }
 
         }
@@ -49,6 +51,7 @@ namespace Ex03.GarageLogic
             {
                 return m_MaxPressure;
             }
+
             set
             {
                 m_MaxPressure = value;
@@ -58,11 +61,6 @@ namespace Ex03.GarageLogic
         public Tire(float i_MaxPressure)
         {
             MaxPressure = i_MaxPressure;
-            
-        }
-        
-        public Tire()
-        {
 
         }
 
@@ -70,7 +68,7 @@ namespace Ex03.GarageLogic
         {
             if (i_AmountOfAirToAdd + CurrentPressure > MaxPressure)
             {
-                throw new ValueOutOfRangeException("Amount Of Air", 0, MaxPressure- MaxPressure);
+                throw new ValueOutOfRangeException("Amount Of Air", 0, MaxPressure - MaxPressure);
             }
             else
             {

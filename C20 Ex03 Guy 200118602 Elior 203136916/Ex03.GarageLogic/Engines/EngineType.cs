@@ -1,9 +1,9 @@
-﻿using Ex03.GarageLogic.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex03.GarageLogic.Enums;
 
 namespace Ex03.GarageLogic
 {
@@ -46,15 +46,14 @@ namespace Ex03.GarageLogic
             }
             set
             {
-                if(value>MaxEnergy)
+                if (value > MaxEnergy)
                 {
-                    throw new ValueOutOfRangeException("Max Engine Energy",0, MaxEnergy);
+                    throw new ValueOutOfRangeException("Max Engine Energy", 0, MaxEnergy);
                 }
                 else
                 {
                     m_CurrentEnergy = value;
                 }
-                
             }
         }
 
@@ -69,10 +68,5 @@ namespace Ex03.GarageLogic
                 m_TypeOfEngine = value;
             }
         }
-
-       
-
-     
-
     }
 }

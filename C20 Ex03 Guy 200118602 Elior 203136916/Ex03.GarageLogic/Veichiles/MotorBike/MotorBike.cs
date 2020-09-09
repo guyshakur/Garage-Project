@@ -1,17 +1,17 @@
-﻿using Ex03.GarageLogic.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex03.GarageLogic.Enums;
 
 namespace Ex03.GarageLogic.Model
 {
-    public abstract class MotorBike:Vehicle
+    public abstract class MotorBike : Vehicle
     {
         private eLiecenceType m_LiecenceType;
         private int m_EngineCapacity;
-        private eFuelType ? m_FuelType;
+        private eFuelType? m_FuelType;
 
         public eLiecenceType LiecenceType
         {
@@ -19,6 +19,7 @@ namespace Ex03.GarageLogic.Model
             {
                 return m_LiecenceType;
             }
+
             set
             {
                 m_LiecenceType = value;
@@ -31,6 +32,7 @@ namespace Ex03.GarageLogic.Model
             {
                 return m_EngineCapacity;
             }
+
             set
             {
                 m_EngineCapacity = value;
@@ -43,6 +45,7 @@ namespace Ex03.GarageLogic.Model
             {
                 return (eFuelType)m_FuelType;
             }
+
             set
             {
                 m_FuelType = value;

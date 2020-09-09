@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic.Enums
 {
     public enum eVeichileStatus
     {
-        FIXED=1,
+        FIXED = 1,
         FIXING,
         PAID
     }

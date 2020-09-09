@@ -1,9 +1,9 @@
-﻿using Ex03.GarageLogic.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex03.GarageLogic.Enums;
 
 namespace Ex03.GarageLogic
 {
@@ -11,13 +11,15 @@ namespace Ex03.GarageLogic
     {
         private eColors m_Colors;
         private eDoorsType m_DoorsType;
-        private eFuelType  m_FuelType;
+        private eFuelType m_FuelType;
+
         public eColors Colors
         {
             get
             {
                 return m_Colors;
             }
+
             set
             {
                 m_Colors = value;
@@ -30,6 +32,7 @@ namespace Ex03.GarageLogic
             {
                 return m_DoorsType;
             }
+
             set
             {
                 m_DoorsType = value;
@@ -40,8 +43,9 @@ namespace Ex03.GarageLogic
         {
             get
             {
-                return  m_FuelType;
+                return m_FuelType;
             }
+
             set
             {
                 m_FuelType = value;
@@ -61,4 +65,3 @@ namespace Ex03.GarageLogic
     }
 
 }
-

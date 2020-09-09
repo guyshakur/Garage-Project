@@ -34,8 +34,8 @@ namespace Ex03.ConsoleUI
                     }
                 }
             }
-			else
-			{
+            else
+            {
                 Console.WriteLine("this Licence id not exist.");
             }
             Console.WriteLine("for exit press any key");
@@ -43,30 +43,30 @@ namespace Ex03.ConsoleUI
 
         }
 
-		internal static void chargeBattery()
-		{
-			
-		}
+        internal static void chargeBattery()
+        {
 
-		internal static void fuelCarWithGas()
-		{
+        }
 
-		}
+        internal static void fuelCarWithGas()
+        {
 
-		internal static void inflateTires()
-		{
+        }
+
+        internal static void inflateTires()
+        {
             Console.WriteLine("Press Liecence Id of Vehicle for inflate tires ");
             string licenceFromUser = Console.ReadLine();
-            if(Garage.InflateTiresToTheMaxIfExist(licenceFromUser))
+            if (Garage.InflateTiresToTheMaxIfExist(licenceFromUser))
             {
                 Console.WriteLine("The tires are inflated to the maximum");
             }
-			else
-			{
+            else
+            {
                 Console.WriteLine("There are no veichle with this Liecence ID");
-			}
+            }
             Console.WriteLine("for exit pres any key");
             Console.ReadLine();
         }
-	}
+    }
 }

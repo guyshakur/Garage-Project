@@ -1,22 +1,21 @@
-﻿using Ex03.GarageLogic.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex03.GarageLogic.Enums;
 
 namespace Ex03.GarageLogic
 {
     public class FuelEngine : EngineType
     {
-        public FuelEngine(eFuelType i_FuelType, float i_MaxEnergy) 
+        public FuelEngine(eFuelType i_FuelType, float i_MaxEnergy)
         {
             FuelType = i_FuelType;
             MaxEnergy = i_MaxEnergy;
-            //m_TypeOfEngine = eTypeOfEngine.FUEL;
+            ////m_TypeOfEngine = eTypeOfEngine.FUEL;
         }
 
-        
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -25,8 +24,7 @@ namespace Ex03.GarageLogic
             sb.AppendLine("The Current Fuel That Left Is " + CurrentEnergy + " Litters");
 
             return sb.ToString();
-                
-        }
 
+        }
     }
 }

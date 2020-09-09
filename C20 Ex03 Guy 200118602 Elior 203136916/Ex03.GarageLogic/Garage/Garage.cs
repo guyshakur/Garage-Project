@@ -1,98 +1,25 @@
-﻿using Ex03.GarageLogic.Enums;
-using Ex03.GarageLogic.Model;
-using Ex03.GarageLogic.Veichiles;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex03.GarageLogic.Enums;
+using Ex03.GarageLogic.Model;
+using Ex03.GarageLogic.Veichiles;
 
 namespace Ex03.GarageLogic.Garage
 {
     public class Garage
     {
+        private static List<Customer> m_Customers = null;
+        private static List<Vehicle> m_Vehicles = null;
         private Car m_Car = null;
         private MotorBike m_MotorBike = null;
         private Truck m_Truck = null;
         private List<Car> m_Cars = null;
         private List<Truck> m_Trucks = null;
         private List<MotorBike> m_Motors = null;
-        private static List<Customer> m_Customers = null;
-        private static List<Vehicle> m_Vehicles = null;
-
-        public Car Car
-        {
-            get
-            {
-                return m_Car;
-            }
-            set
-            {
-                m_Car = value;
-            }
-        }
-
-        public MotorBike MotorBike
-        {
-            get
-            {
-                return m_MotorBike;
-            }
-            set
-            {
-                m_MotorBike = value;
-            }
-        }
-
-        public Truck Truck
-        {
-            get
-            {
-                return m_Truck;
-            }
-            set
-            {
-                m_Truck = value;
-            }
-        }
-
-
-        public List<Car> Cars
-        {
-            get
-            {
-                return m_Cars;
-            }
-            set
-            {
-                m_Cars = value;
-            }
-        }
-
-        public List<MotorBike> Motors
-        {
-            get
-            {
-                return m_Motors;
-            }
-            set
-            {
-                m_Motors = value;
-            }
-        }
-
-        public List<Truck> Trucks
-        {
-            get
-            {
-                return m_Trucks;
-            }
-            set
-            {
-                m_Trucks = value;
-            }
-        }
 
         public static List<Customer> Customers
         {
@@ -100,6 +27,7 @@ namespace Ex03.GarageLogic.Garage
             {
                 return m_Customers;
             }
+
             set
             {
                 m_Customers = value;
@@ -112,15 +40,105 @@ namespace Ex03.GarageLogic.Garage
             {
                 return m_Vehicles;
             }
+
             set
             {
                 m_Vehicles = value;
             }
         }
+        public List<Car> Cars
+        {
+            get
+            {
+                return m_Cars;
+            }
+
+            set
+            {
+                m_Cars = value;
+            }
+        }
+
+        public List<MotorBike> Motors
+        {
+            get
+            {
+                return m_Motors;
+            }
+
+            set
+            {
+                m_Motors = value;
+            }
+        }
+
+        public List<Truck> Trucks
+        {
+            get
+            {
+                return m_Trucks;
+            }
+
+            set
+            {
+                m_Trucks = value;
+            }
+        }
+
+        public Car Car
+        {
+            get
+            {
+                return m_Car;
+            }
+
+            set
+            {
+                m_Car = value;
+            }
+        }
+
+        public MotorBike MotorBike
+        {
+            get
+            {
+                return m_MotorBike;
+            }
+
+            set
+            {
+                m_MotorBike = value;
+            }
+        }
+
+        public Truck Truck
+        {
+            get
+            {
+                return m_Truck;
+            }
+
+            set
+            {
+                m_Truck = value;
+            }
+        }
+
+        private static int GetIndexOfByLiecenceID(string i_LiecenceID)
+        {
+            int index = -1;
+            for (int i = 0; i < Customers.Count; i++)
+            {
+                if (Customers.ElementAt(i).LicenceIDOfCar.Equals(i_LiecenceID))
+                {
+                    index = i;
+                }
+            }
+            return index;
+        }
 
         public void AddCustomer(string i_FullName, string i_PhoneNumber, string i_LicenceId)
         {
-
             if (Customers == null)
             {
                 Customers = new List<Customer>();
@@ -130,12 +148,10 @@ namespace Ex03.GarageLogic.Garage
             Customers.Add(customer);
         }
 
-
         public void AddCarAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, eColors i_Color, eDoorsType i_DoorType)
         {
             switch (i_TypeOfVeichile)
             {
-
                 case eTypeOfVeichle.FuelCar:
                 case eTypeOfVeichle.ElectricCar:
                     if (Vehicles == null)
@@ -156,7 +172,6 @@ namespace Ex03.GarageLogic.Garage
                     Cars.Add(car);
                     Vehicles.Add(car);
                     break;
-
             }
         }
 
@@ -235,7 +250,6 @@ namespace Ex03.GarageLogic.Garage
                         break;
                     }
                 }
-
             }
 
             return isExist;
@@ -246,7 +260,6 @@ namespace Ex03.GarageLogic.Garage
             StringBuilder sb = new StringBuilder();
             if (Vehicles == null || Vehicles.Count == 0)
             {
-
                 sb.AppendLine("There Are No Vehicles In The Garage Yet.");
             }
             else
@@ -266,7 +279,6 @@ namespace Ex03.GarageLogic.Garage
             StringBuilder sb = new StringBuilder();
             if (Vehicles != null)
             {
-
                 foreach (Customer customer in Customers)
                 {
                     if (customer.Status == i_VehicleStatus)
@@ -274,7 +286,8 @@ namespace Ex03.GarageLogic.Garage
                         sb.AppendLine(customer.LicenceIDOfCar);
                     }
                 }
-                if (String.IsNullOrEmpty(sb.ToString()))
+
+                if (string.IsNullOrEmpty(sb.ToString()))
                 {
                     sb.AppendLine("There Are No Vehicles With That Status");
                 }
@@ -297,21 +310,6 @@ namespace Ex03.GarageLogic.Garage
 
             return isExist;
         }
-
-        private static int GetIndexOfByLiecenceID(string i_LiecenceID)
-        {
-            int index = -1;
-            for (int i = 0; i < Customers.Count; i++)
-            {
-                if (Customers.ElementAt(i).LicenceIDOfCar.Equals(i_LiecenceID))
-                {
-                    index = i;
-                }
-            }
-            return index;
-        }
-
-
 
         public static bool InflateTiresToTheMaxIfExist(string i_LiecenceID)
         {
@@ -378,18 +376,17 @@ namespace Ex03.GarageLogic.Garage
         public static void GetFullEnergy(string i_LiecenceID)
         {
             GasStation.FillToTheMax(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine);
-        }  
+        }
 
-        public string  GetAllVehicleDetailIfExist(string i_LiecenceID)
+        public string GetAllVehicleDetailIfExist(string i_LiecenceID)
         {
-            StringBuilder sb=new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             if (IsLicenceIDExistInGarage(i_LiecenceID))
             {
-                
                 if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
                 {
                     sb.AppendLine("          Vehicle Details:");
-                    sb.AppendLine( Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).ToString());
+                    sb.AppendLine(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).ToString());
                     sb.AppendLine();
                     sb.AppendLine("Contact details");
                     sb.AppendLine();
@@ -407,4 +404,3 @@ namespace Ex03.GarageLogic.Garage
     }
 
 }
-

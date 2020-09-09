@@ -1,10 +1,10 @@
-﻿using Ex03.GarageLogic.Enums;
-using Ex03.GarageLogic.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex03.GarageLogic.Enums;
+using Ex03.GarageLogic.Model;
 
 namespace Ex03.GarageLogic.Veichiles
 {
@@ -50,7 +50,7 @@ namespace Ex03.GarageLogic.Veichiles
             switch (i_TypeOfVeichile)
             {
                 case eTypeOfVeichle.FuelMotorCycle:
-                    motorBike = new FuelMotorBike(s_FuelTypeForBike,s_MaxFuelForBike);
+                    motorBike = new FuelMotorBike(s_FuelTypeForBike, s_MaxFuelForBike);
                     motorBike.Tires = initTires(s_NumberOfTiresForMotorBike, s_MaxTirePressureForBike);
                     break;
 
@@ -69,7 +69,7 @@ namespace Ex03.GarageLogic.Veichiles
             switch (i_TypeOfVeichile)
             {
                 case eTypeOfVeichle.Truck:
-                    truck = new Truck(s_FuelTypeForTruck,s_MaxFuelForTruck);
+                    truck = new Truck(s_FuelTypeForTruck, s_MaxFuelForTruck);
                     truck.Tires = initTires(s_NumberOfTiresForMotorTruck, s_MaxTirePressureForTruck);
                     break;
             }

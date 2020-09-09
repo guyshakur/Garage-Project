@@ -1,18 +1,17 @@
-﻿using Ex03.GarageLogic.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex03.GarageLogic.Enums;
 
 namespace Ex03.GarageLogic
 {
     public class ElectricEngine : EngineType
     {
-
         private float m_MaxBattryHours;
 
-        public ElectricEngine(float i_MaxEnergy) 
+        public ElectricEngine(float i_MaxEnergy)
         {
             MaxEnergy = i_MaxEnergy;
             m_TypeOfEngine = eTypeOfEngine.ELECTRIC;
@@ -30,8 +29,6 @@ namespace Ex03.GarageLogic
             }
         }
 
-        
-
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder()
@@ -40,8 +37,5 @@ namespace Ex03.GarageLogic
 
             return sb.ToString();
         }
-
-        
-
     }
 }

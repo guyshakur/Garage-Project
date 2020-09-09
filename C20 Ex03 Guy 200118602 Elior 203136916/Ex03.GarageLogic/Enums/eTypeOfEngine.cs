@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic.Enums
 {
     public enum eTypeOfEngine
     {
-        FUEL=1,
+        FUEL = 1,
         ELECTRIC
     }
 }

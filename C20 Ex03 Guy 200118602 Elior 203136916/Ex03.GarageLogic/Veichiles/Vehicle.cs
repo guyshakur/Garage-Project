@@ -1,6 +1,6 @@
-﻿using Ex03.GarageLogic.Enums;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
+using Ex03.GarageLogic.Enums;
 
 namespace Ex03.GarageLogic
 {
@@ -14,49 +14,30 @@ namespace Ex03.GarageLogic
 
         public string Model
         {
-            set
-            {
-                m_Model = value ;
-            }
             get
             {
                 return m_Model;
+            }
+
+            set
+            {
+                m_Model = value;
             }
 
         }
 
         public string LicenceID
         {
-            set
-            {
-                m_LicenceID = value;
-            }
             get
             {
                 return m_LicenceID;
             }
+
+            set
+            {
+                m_LicenceID = value;
+            }
         }
-
-        //public float EnergyPercent
-        //{
-        //    get
-        //    {
-        //        return m_EnergyPercent;
-        //    }
-
-        //    set
-        //    {
-        //        if(value>Engine.MaxEnergy)
-        //        {
-        //            throw new ValueOutOfRangeException(0, Engine.MaxEnergy);
-        //        }
-        //        else
-        //        {
-        //            m_EnergyPercent = value;
-        //        }
-                
-        //    }
-        //}
 
         public eTypeOfVeichle TypeOfVeichle
         {
@@ -64,23 +45,12 @@ namespace Ex03.GarageLogic
             {
                 return m_TypeOfVehicle;
             }
+
             set
             {
                 m_TypeOfVehicle = value;
             }
         }
-
-        //public float MaxEnergy
-        //{
-        //    get
-        //    {
-        //        return m_MaxEnergy;
-        //    }
-        //    set
-        //    {
-        //        m_MaxEnergy = value;
-        //    }
-        //}
 
         public List<Tire> Tires
         {
@@ -88,6 +58,7 @@ namespace Ex03.GarageLogic
             {
                 return m_Tires;
             }
+
             set
             {
                 m_Tires = value;
@@ -100,13 +71,13 @@ namespace Ex03.GarageLogic
             {
                 return m_EngineType;
             }
+
             set
             {
                 m_EngineType = value;
             }
         }
 
-        
         public override string ToString()
         {
             StringBuilder sb =
@@ -127,6 +98,4 @@ namespace Ex03.GarageLogic
         }
     }
 
-   
-    
 }

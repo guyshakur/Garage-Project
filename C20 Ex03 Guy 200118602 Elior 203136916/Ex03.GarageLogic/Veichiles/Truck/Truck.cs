@@ -1,9 +1,9 @@
-﻿using Ex03.GarageLogic.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex03.GarageLogic.Enums;
 
 namespace Ex03.GarageLogic.Veichiles
 {
@@ -19,6 +19,7 @@ namespace Ex03.GarageLogic.Veichiles
             {
                 return m_FuelType;
             }
+
             set
             {
                 m_FuelType = value;
@@ -31,6 +32,7 @@ namespace Ex03.GarageLogic.Veichiles
             {
                 return m_IsHazardous;
             }
+
             set
             {
                 m_IsHazardous = value;
@@ -43,21 +45,15 @@ namespace Ex03.GarageLogic.Veichiles
             {
                 return m_TruckCapacity;
             }
+
             set
             {
                 m_TruckCapacity = value;
             }
         }
 
-
-        //public override void InitalizeEngine(float i_CurrentEnergy)
-        //{
-        //    Engine = new FuelEngine(FuelType, i_CurrentEnergy, MaxEnergy);
-        //}
-
         public Truck(eFuelType i_FuelType, float i_MaxEnergy)
         {
-
             TypeOfVeichle = eTypeOfVeichle.Truck;
             Engine = new FuelEngine(i_FuelType, i_MaxEnergy);
             Engine.TypeOfEngine = eTypeOfEngine.FUEL;
@@ -67,7 +63,7 @@ namespace Ex03.GarageLogic.Veichiles
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(base.ToString());
-            sb.AppendLine("Is Hazardous? "+IsHazardous);
+            sb.AppendLine("Is Hazardous? " + IsHazardous);
             sb.AppendLine("Truck Capacity: " + TruckCapacity);
 
             return sb.ToString();
