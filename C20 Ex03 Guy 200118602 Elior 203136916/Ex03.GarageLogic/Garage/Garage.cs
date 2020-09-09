@@ -287,9 +287,9 @@ namespace Ex03.GarageLogic.Garage
             if(IsLicenceIDExistInGarage(i_LiecenceID))
             {
                 isExist = true;
-                if(GetIndexOfCustomerByLiecenceID(i_LiecenceID)!=-1)
+                if(GetIndexOfByLiecenceID(i_LiecenceID,Customers)!=-1)
                 {
-                   Customers.ElementAt(GetIndexOfCustomerByLiecenceID(i_LiecenceID)).Status = i_VehicleStatus;
+                   Customers.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID,Customers)).Status = i_VehicleStatus;
                 }
                 
             }
@@ -297,10 +297,10 @@ namespace Ex03.GarageLogic.Garage
             return isExist;
         }
 
-        private static int GetIndexOfCustomerByLiecenceID(string i_LiecenceID)
+        private static int GetIndexOfByLiecenceID(string i_LiecenceID,List<Customer>obj)
         {
             int index = -1;
-            for(int i=0;i<Customers.Count;i++)
+            for(int i=0;i<obj.Count;i++)
             {
                 if(Customers.ElementAt(i).LicenceIDOfCar.Equals(i_LiecenceID))
                 {
@@ -309,6 +309,15 @@ namespace Ex03.GarageLogic.Garage
             }
             return index;
         }
+
+        
+
+        public static void InflateTires(string i_LiecenceID)
+        {
+
+        }
+
+
     }
 
 
