@@ -14,15 +14,18 @@ namespace Ex03.ConsoleUI
 				Console.WriteLine(Garage.GetAllLiecenceAndStatus().ToString());
 				do
 				{
-					Console.WriteLine("If you want to filter by status:\n" +
-						"1. Fixed\n" +
-						"2. Fixing\n" +
-						"3. Paid\n" +
-						"for exit (from this menu) press another key");
+					Console.WriteLine(
+@"If you want to filter by status:
+1. Fixed
+2. Fixing
+3. Paid
+for exit (from this menu) press another key");
 					if (int.TryParse(Console.ReadLine(), out int result) && result > 0 && result < 4)
 					{
-						Console.WriteLine(Garage.GetAllfileredLiecenceByVehicleStatus((eVeichileStatus)result));
-						System.Threading.Thread.Sleep(1500);
+						Console.WriteLine(
+@"{0}
+press any key for exit to main menu", Garage.GetAllfileredLiecenceByVehicleStatus((eVeichileStatus)result));
+						Console.ReadLine();
 					}
 					else
 					{
