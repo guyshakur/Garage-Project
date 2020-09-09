@@ -281,28 +281,28 @@ namespace Ex03.GarageLogic.Garage
             return sb.ToString();
         }
 
-        public static bool ChangeStatusOfVehicleIfExists(string i_LiecenceID,eVeichileStatus i_VehicleStatus)
+        public static bool ChangeStatusOfVehicleIfExists(string i_LiecenceID, eVeichileStatus i_VehicleStatus)
         {
             bool isExist = false;
-            if(IsLicenceIDExistInGarage(i_LiecenceID))
+            if (IsLicenceIDExistInGarage(i_LiecenceID))
             {
                 isExist = true;
-                if(GetIndexOfByLiecenceID(i_LiecenceID,Customers)!=-1)
+                if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
                 {
-                   Customers.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID,Customers)).Status = i_VehicleStatus;
+                    Customers.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Status = i_VehicleStatus;
                 }
-                
+
             }
 
             return isExist;
         }
 
-        private static int GetIndexOfByLiecenceID(string i_LiecenceID,List<Customer>obj)
+        private static int GetIndexOfByLiecenceID(string i_LiecenceID)
         {
             int index = -1;
-            for(int i=0;i<obj.Count;i++)
+            for (int i = 0; i < Customers.Count; i++)
             {
-                if(Customers.ElementAt(i).LicenceIDOfCar.Equals(i_LiecenceID))
+                if (Customers.ElementAt(i).LicenceIDOfCar.Equals(i_LiecenceID))
                 {
                     index = i;
                 }
@@ -310,15 +310,27 @@ namespace Ex03.GarageLogic.Garage
             return index;
         }
 
-        
 
-        public static void InflateTires(string i_LiecenceID)
+
+        public static bool InflateTiresToTheMaxIfExist(string i_LiecenceID)
         {
+            bool isExist = false;
+            if (IsLicenceIDExistInGarage(i_LiecenceID))
+            {
+                isExist = true;
+                if (GetIndexOfByLiecenceID(i_LiecenceID) != -1)
+                {
+                    foreach (Tire tire in Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Tires)
+                    {
+                        tire.InflateTire(tire.MaxPressure - tire.CurrentPressure);
+                    }
+
+                }
+
+            }
+            return isExist;
 
         }
 
-
     }
-
-
 }
