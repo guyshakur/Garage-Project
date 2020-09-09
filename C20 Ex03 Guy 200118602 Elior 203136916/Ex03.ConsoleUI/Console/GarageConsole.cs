@@ -52,7 +52,6 @@ namespace Ex03.ConsoleUI
                         case 7:
                             {
                                 DetaileOfVeichle.getFullInfoAboutVeichleByLiecenceID();
-                                //addVeichleToGarage(out fullNameCustomer, out phoneCustomer);
                                 break;
                             }
                     }
@@ -65,16 +64,17 @@ namespace Ex03.ConsoleUI
         private static string mainMenuChoice()
         {
             Console.Clear();
-            Console.WriteLine("     Garage");
-            Console.WriteLine("in any location if you press on key 'Q' you return to main menu");
-            Console.WriteLine("please choose your choice:\n" +
-                "1. Add veichle to the Garage\n" +
-                "2. Get List of all liecence in the garage\n" +
-                "3. Change status of car by Liecence Id\n" +
-                "4. Inflate tires\n" +
-                "5. Fuel Car with gas\n" +
-                "6. Charge Battery\n" +
-                "7. Get full info about veichle by liecence ID\n");
+            Console.WriteLine(
+@"         Garage
+in any location if you press on key 'Q' you return to main menu
+please choose your choice:
+1. Add veichle to the Garage
+2. Get List of all liecence in the garage
+3. Change status of car by Liecence Id
+4. Inflate tires
+5. Fuel Car with gas
+6. Charge Battery
+7. Get full info about veichle by liecence ID");
             return Console.ReadLine();
         }
         public static bool checkReadFromUser(string i_Number, int i_MaximumNumber)
@@ -218,11 +218,10 @@ namespace Ex03.ConsoleUI
                     Console.WriteLine(
 @"
 
-");
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine(
-@"added a new car/motorcycle/truck is failed.
-to try again press any key");
+
+{0}
+added a new car/motorcycle/truck is failed.
+to try again press any key", ex.Message);
                     Console.ReadLine();
                     AddVeichleToGarageMenu();
                 }
