@@ -13,10 +13,11 @@ namespace Ex03.ConsoleUI
 		{
 
 			string phoneNumber, fullName;
-			string licenceID, model, tiresModel;
-			float currentGazAmountOrHoursLeftForBattery, tiresCurrentPressure, capacity = 0;
+			string licenceID, model;
+			float currentGazAmountOrHoursLeftForBattery, capacity = 0;
 			int intColor, intDoorsType, readTypeOfVeicle, intLicenceType;
 			bool conrainsIsDanger = false;
+			List<Tire> tire = new List<Tire>();
 			eColors color = eColors.Gray;
 			eDoorsType doorType = eDoorsType.Two;
 			eLiecenceType liecenceType = eLiecenceType.A;
@@ -56,12 +57,8 @@ namespace Ex03.ConsoleUI
 						Console.WriteLine("Please enter current hours lefft for battery of the car (numeric)");
 					}
 				} while (!float.TryParse(Console.ReadLine(), out currentGazAmountOrHoursLeftForBattery));
-				Console.WriteLine("please enter Tires Model of the car");
-				tiresModel = Console.ReadLine();
-				do
-				{
-					Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
-				} while (!float.TryParse(Console.ReadLine(), out tiresCurrentPressure));
+				initTires(ref tire, (eTypeOfVeichle)readTypeOfVeicle);
+
 				if ((eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.FuelCar ||           //1
 					(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricCar)         //2
 				{
@@ -123,7 +120,7 @@ namespace Ex03.ConsoleUI
 						(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricCar)         //2
 					{
 						garage.AddCarAndFillWithDetails((eTypeOfVeichle)readTypeOfVeicle, licenceID,
-							model, currentGazAmountOrHoursLeftForBattery, tiresModel, tiresCurrentPressure,
+							model, currentGazAmountOrHoursLeftForBattery, tire,
 							color, doorType);
 						Console.WriteLine("added a new car is succeess");
 					}
@@ -132,14 +129,13 @@ namespace Ex03.ConsoleUI
 					{
 						garage.AddMotorAndFillWithDetails((eTypeOfVeichle)readTypeOfVeicle,
 							licenceID, model, currentGazAmountOrHoursLeftForBattery,
-							tiresModel, tiresCurrentPressure, liecenceType, (int)capacity);
+							tire, liecenceType, (int)capacity);
 						Console.WriteLine("added a new motorecycle is succeess");
 					}
 					else                                                                            //5
 					{
 						garage.AddTruckAndFillWithDetails(eTypeOfVeichle.Truck, licenceID,
-							model, currentGazAmountOrHoursLeftForBattery, tiresModel,
-							tiresCurrentPressure, conrainsIsDanger, capacity);
+							model, currentGazAmountOrHoursLeftForBattery, tire, conrainsIsDanger, capacity);
 						Console.WriteLine("added a new truck is succeess");
 					}
 					garage.AddCustomer(fullName, phoneNumber, licenceID);
@@ -165,7 +161,7 @@ added a new car/motorcycle/truck is failed.", ex.Message);
 				Garage.ChangeStatusOfVehicleIfExists(licenceID, eVeichileStatus.FIXING);
 				Console.WriteLine("The Licence ID is exists - changing the status vehicle to fixing");
 			}
-			
+
 			return (eTypeOfVeichle)readTypeOfVeicle;
 		}
 
@@ -199,7 +195,7 @@ added a new car/motorcycle/truck is failed.", ex.Message);
 
 		private static string addVeichleChoice()
 		{
-			
+
 			string readFromUser;
 			do
 			{
@@ -218,15 +214,23 @@ please choose:
 
 		}
 
-		private static void initTires(ref List<Tire>tires, Vehicle i_Vehicle)
+		private static void initTires(ref List<Tire> io_Tires, eTypeOfVeichle i_TypeOfVeichle)
 		{
-
-			/*tires.Add()
-			foreach (Tire tire in i_Vehicle.Tires)
+			int count = i_TypeOfVeichle == eTypeOfVeichle.ElectricCar || i_TypeOfVeichle == eTypeOfVeichle.FuelCar ? 4 :
+				i_TypeOfVeichle == eTypeOfVeichle.Truck ? 16 : 2;
+			for (int i = 0; i < count; i++)
 			{
-				tire.Brand = i_TiresModel;
-				tire.CurrentPressure = i_CurrntTireAirPressure;
-			}*/
+				float tiresCurrentPressure;
+				string tiresModel;
+				Console.WriteLine("please enter Tires Model of the car");
+				tiresModel = Console.ReadLine();
+				do
+				{
+					Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
+				} while (!float.TryParse(Console.ReadLine(), out tiresCurrentPressure));
+
+				io_Tires.Add(new Tire(tiresCurrentPressure, tiresModel));
+			}
 		}
 	}
 }

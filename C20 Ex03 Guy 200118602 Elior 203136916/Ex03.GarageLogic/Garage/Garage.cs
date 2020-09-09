@@ -151,7 +151,7 @@ namespace Ex03.GarageLogic.Garage
             Customers.Add(customer);
         }
 
-        public void AddCarAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, eColors i_Color, eDoorsType i_DoorType)
+        public void AddCarAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tire, eColors i_Color, eDoorsType i_DoorType)
         {
             switch (i_TypeOfVeichile)
             {
@@ -180,7 +180,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, eLiecenceType i_LicenceType, int i_EngineCapacity)
+        public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tire, eLiecenceType i_LicenceType, int i_EngineCapacity)
         {
             switch (i_TypeOfVeichile)
             {
@@ -209,7 +209,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public void AddTruckAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, string i_TiresModel, float i_CurrntTireAirPressure, bool i_IsDangarus, float i_TruckCapacity)
+        public void AddTruckAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tire, bool i_IsDangarus, float i_TruckCapacity)
         {
             switch (i_TypeOfVeichile)
             {
