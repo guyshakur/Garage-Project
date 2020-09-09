@@ -54,7 +54,10 @@ for exit (from this menu) press another key");
 				try
 				{
 					Garage.ChargeVehicleIfExist(licenceId, amountToCharge);
-					Console.WriteLine("Your battery is charge with {0} hours",amountToCharge);
+					Console.WriteLine(
+@"Your battery is charge with {0} hours{0}
+Press any key for exit to menu", amountToCharge);
+					Console.ReadLine();
 				}
 				catch (ValueOutOfRangeException ofe) //if you fill over
 				{
@@ -68,7 +71,10 @@ for exit (from this menu) press another key");
 					if (read == "y" || read == "Y")
 					{
 						Garage.GetFullEnergy(licenceId);
-						Console.WriteLine("Your battery is fully charged.");
+						Console.WriteLine(
+@"Your battery is fully charged.
+Press any key for exit to menu");
+						Console.ReadLine();
 					}
 					else
 					{
@@ -77,18 +83,18 @@ for exit (from this menu) press another key");
 				}
 				catch (FormatException fe)//if choose gas
 				{
-					Console.WriteLine(fe.Message);
-				}
-				finally
-				{
-					Console.WriteLine("Press any key for exit to menu");
+					Console.WriteLine(
+@"
+Press any key for exit to menu", fe.Message);
 					Console.ReadLine();
 				}
+				
 			}
 			else
 			{
-				Console.WriteLine("There are no veichle with this Liecence ID");
-				Console.WriteLine("Press any key for exit to menu");
+				Console.WriteLine(
+@"There are no veichle with this Liecence ID
+Press any key for exit to menu");
 				Console.ReadLine();
 			}
 		}
@@ -103,7 +109,7 @@ for exit (from this menu) press another key");
 				do
 				{
 					Console.WriteLine(
-	@"enter the gazoline type
+@"enter the gazoline type
 1. Octan95
 2. Octan96
 3. Octan98
@@ -118,6 +124,8 @@ for exit (from this menu) press another key");
 				{
 					Garage.FillVehicleWithGasIfExist(licenceId, (eFuelType)gazolineInt, amount);
 					Console.WriteLine("The vehicle will be refueled with {0} liter", amount);
+					Console.WriteLine("Press any key for exit to menu");
+					Console.ReadLine();
 				}
 				catch (ValueOutOfRangeException ofe)//if you fill over 
 				{
@@ -132,6 +140,8 @@ for exit (from this menu) press another key");
 					{
 						Garage.GetFullEnergy(licenceId);
 						Console.WriteLine("The vehicle will be fully refueled");
+						Console.WriteLine("Press any key for exit to menu");
+						Console.ReadLine();
 					}
 					else
 					{
@@ -141,17 +151,15 @@ for exit (from this menu) press another key");
 				catch (FormatException fe)//if choose Electric
 				{
 					Console.WriteLine(fe.Message);
+					Console.WriteLine("Press any key for exit to menu");
+					Console.ReadLine();
 				}
 				catch (ArgumentException ae)//if choose type of gaz Different
 				{
 					Console.WriteLine(ae.Message);
 					fuelCarWithGas();
 				}
-				finally
-				{
-					Console.WriteLine("Press any key for exit to menu");
-					Console.ReadLine();
-				}
+				
 			}
 			else
 			{

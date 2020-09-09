@@ -56,10 +56,16 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public Tire(float i_MaxPressure,string i_Brand)
+        public Tire(float i_MaxPressure)
         {
-            i_Brand = Brand;
             MaxPressure = i_MaxPressure;
+        }
+
+        public Tire(float i_CurrntPressure, string i_Brand)
+        {
+            Brand = i_Brand;
+            CurrentPressure = i_CurrntPressure;
+
         }
 
         public void InflateTire(float i_AmountOfAirToAdd)

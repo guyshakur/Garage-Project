@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.AccessControl;
+using System.Collections.Generic;
 using Ex03.GarageLogic;
 using Ex03.GarageLogic.Enums;
 using Ex03.GarageLogic.Garage;
@@ -20,6 +21,7 @@ namespace Ex03.ConsoleUI
 			eDoorsType doorType = eDoorsType.Two;
 			eLiecenceType liecenceType = eLiecenceType.A;
 			Garage garage = new Garage();
+
 			Console.Clear();
 			readTypeOfVeicle = int.Parse(addVeichleChoice());
 			Console.WriteLine("Please enter licence id of the car:");
@@ -160,7 +162,8 @@ added a new car/motorcycle/truck is failed.", ex.Message);
 			}
 			else
 			{
-				Console.WriteLine("The Licence ID is exists - changing the status vehicle to FIXED");
+				Garage.ChangeStatusOfVehicleIfExists(licenceID, eVeichileStatus.FIXING);
+				Console.WriteLine("The Licence ID is exists - changing the status vehicle to fixing");
 			}
 			
 			return (eTypeOfVeichle)readTypeOfVeicle;
@@ -213,6 +216,17 @@ please choose:
 			} while (!GarageConsole.checkReadFromUser(readFromUser, 5));
 			return readFromUser;
 
+		}
+
+		private static void initTires(ref List<Tire>tires, Vehicle i_Vehicle)
+		{
+
+			/*tires.Add()
+			foreach (Tire tire in i_Vehicle.Tires)
+			{
+				tire.Brand = i_TiresModel;
+				tire.CurrentPressure = i_CurrntTireAirPressure;
+			}*/
 		}
 	}
 }

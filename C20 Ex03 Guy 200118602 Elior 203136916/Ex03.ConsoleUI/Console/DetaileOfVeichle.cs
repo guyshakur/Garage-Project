@@ -38,7 +38,13 @@ press any key for exit to main menu", Garage.GetAllfileredLiecenceByVehicleStatu
 
 		internal static void getFullInfoAboutVeichleByLiecenceID()
 		{
-			throw new NotImplementedException();
+			Console.WriteLine("Enter licence id for details.");
+			string licenceId = Console.ReadLine();
+			Console.WriteLine(
+@"{0}
+Enter any key to exit ", Garage.GetAllVehicleDetailIfExist(licenceId));
+			Console.ReadLine();
+
 		}
 	}
 }

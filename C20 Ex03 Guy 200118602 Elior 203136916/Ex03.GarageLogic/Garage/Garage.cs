@@ -382,7 +382,7 @@ namespace Ex03.GarageLogic.Garage
             GasStation.FillToTheMax(Vehicles.ElementAt(GetIndexOfByLiecenceID(i_LiecenceID)).Engine);
         }
 
-        public string GetAllVehicleDetailIfExist(string i_LiecenceID)
+        public static string GetAllVehicleDetailIfExist(string i_LiecenceID)
         {
             StringBuilder sb = new StringBuilder();
             if (IsLicenceIDExistInGarage(i_LiecenceID))
