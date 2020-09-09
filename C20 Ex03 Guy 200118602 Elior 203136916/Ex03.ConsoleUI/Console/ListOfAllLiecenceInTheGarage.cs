@@ -16,7 +16,7 @@ namespace Ex03.ConsoleUI
 				{
 					Console.WriteLine("If you want to filter by status:\n" +
 						"1. Fixed\n" +
-						"2. Fixing)\n" +
+						"2. Fixing\n" +
 						"3. Paid\n" +
 						"for exit (from this menu) press another key");
 					if (int.TryParse(Console.ReadLine(), out int result) && result > 0 && result < 4)

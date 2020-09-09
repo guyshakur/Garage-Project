@@ -10,6 +10,7 @@ namespace Ex03.ConsoleUI
 	{
 		public static eTypeOfVeichle AddVeichleToGarage()
 		{
+			
 			string phoneNumber, fullName;
 			string licenceID, model, tiresModel;
 			float currentGazAmountOrHoursLeftForBattery, tiresCurrentPressure, capacity=0;
@@ -23,7 +24,7 @@ namespace Ex03.ConsoleUI
 			readTypeOfVeicle = int.Parse(addVeichleChoice());
 			Console.WriteLine("Please enter licence id of the car:");
 			licenceID = Console.ReadLine();
-			if (!garage.IsLicenceIDExistInGarage(licenceID))
+			if (!Garage.IsLicenceIDExistInGarage(licenceID))
 			{
 				Console.WriteLine("Please enter your full name");
 				fullName = Console.ReadLine();
@@ -104,6 +105,8 @@ namespace Ex03.ConsoleUI
 							model, currentGazAmountOrHoursLeftForBattery, tiresModel, tiresCurrentPressure,
 							color, doorType);
 						Console.WriteLine("added a new car is succeess");
+						Console.WriteLine("for exit to main menu press any key");
+						Console.ReadLine();
 					}
 					else if ((eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.FuelMotorCycle ||   //3
 					(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricMotorCycle)			//4
@@ -112,6 +115,8 @@ namespace Ex03.ConsoleUI
 							licenceID, model, currentGazAmountOrHoursLeftForBattery,
 							tiresModel, tiresCurrentPressure, liecenceType, capacity);
 						Console.WriteLine("added a new motorecycle is succeess");
+						Console.WriteLine("for exit to main menu press any key");
+						Console.ReadLine();
 					}
 					else                                                                            //5
 					{
@@ -121,13 +126,17 @@ namespace Ex03.ConsoleUI
 						Console.WriteLine("added a new truck is succeess");
 					}
 					garage.AddCustomer(fullName, phoneNumber, licenceID);
-					Console.WriteLine("added a Cusomer is succeess");
+					Console.WriteLine("for exit to main menu press any key");
+					Console.ReadLine();
 				}
 				catch(ValueOutOfRangeException ex)
 				{
+					Console.WriteLine();
+					Console.WriteLine();
 					Console.WriteLine(ex.Message);
-					Console.WriteLine("added a new car/motorcycle/truck is failed.\ntry again");
-					System.Threading.Thread.Sleep(1500);
+					Console.WriteLine("added a new car/motorcycle/truck is failed.\nto try again press any key");
+					Console.ReadLine();
+					//System.Threading.Thread.Sleep(1500);
 					return AddVeichleToGarage();
 				}
 
@@ -135,6 +144,8 @@ namespace Ex03.ConsoleUI
 			else
 			{
 				Console.WriteLine("The Licence ID is exists");
+				Console.WriteLine("for exit to main menu press any key");
+				Console.ReadLine();
 			}
 			System.Threading.Thread.Sleep(1500);
 			return (eTypeOfVeichle)readTypeOfVeicle;
