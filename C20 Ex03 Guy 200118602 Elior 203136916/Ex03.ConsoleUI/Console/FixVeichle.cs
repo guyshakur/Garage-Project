@@ -30,7 +30,7 @@ for exit (from this menu) press another key");
 					if (Garage.ChangeStatusOfVehicleIfExists(licenceFromUser, (eVeichileStatus)result))
 					{
 						msg.Clear();
-						msg.Append("status changed.");
+						msg.AppendLine("status changed.");
 					}
 				}
 			}
@@ -161,20 +161,21 @@ please try again", ae.Message);
 				Console.WriteLine("There are no veichle with this Liecence ID");
 			}
 		}
+
 		internal static void inflateTires()
 		{
-			StringBuilder msg;
+			StringBuilder msg = new StringBuilder();
 			Console.WriteLine("Press Liecence Id of Vehicle for inflate tires ");
 			string licenceFromUser = Console.ReadLine();
 			if (Garage.InflateTiresToTheMaxIfExist(licenceFromUser))
 			{
-				msg = new StringBuilder("The tires are inflated to the maximum");
+				msg.AppendLine("The tires are inflated to the maximum.");
 			}
 			else
 			{
-				msg = new StringBuilder("There are no veichle with this Liecence ID");
+				msg.AppendLine("There are no veichle with this Liecence ID.");
 			}
-			msg.AppendLine("for exit pres any key");
+			msg.AppendLine("for exit press any key");
 			Console.WriteLine(msg);
 			Console.ReadLine();
 		}
