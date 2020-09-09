@@ -12,6 +12,12 @@ namespace Ex03.GarageLogic.Garage
 {
     public class Garage
     {
+        private const int k_NumberOfTiresForCar = 4;
+        private const float k_MaxTirePressureForCar = 32f;
+        private const int k_NumberOfTiresForMotorBike = 2;
+        private const float k_MaxTirePressureForBike = 28f;
+        private const int k_NumberOfTiresForMotorTruck = 16;
+        private const float k_MaxTirePressureForTruck = 30f;
         private static List<Customer> m_Customers = null;
         private static List<Vehicle> m_Vehicles = null;
         private Car m_Car = null;
@@ -171,7 +177,7 @@ namespace Ex03.GarageLogic.Garage
                     car.LicenceID = i_LicenceID;
                     car.Model = i_VehicleModel;
                     car.Engine.CurrentEnergy = i_EngineCurrentEnergy;
-                   // initTires(car, i_TiresModel, i_CurrntTireAirPressure);
+                    // initTires(car, i_TiresModel, i_CurrntTireAirPressure);
                     car.Colors = i_Color;
                     car.DoorType = i_DoorType;
                     Cars.Add(car);
@@ -179,6 +185,39 @@ namespace Ex03.GarageLogic.Garage
                     break;
             }
         }
+
+        public static List<Tire> CreateTires(eTypeOfVeichle i_TypeOfVehicle)
+        {
+            Tire tire;
+            List<Tire> tires = new List<Tire>();
+            if (i_TypeOfVehicle == eTypeOfVeichle.ElectricCar || i_TypeOfVehicle == eTypeOfVeichle.FuelCar)
+            {
+                for (int i = 0; i < k_NumberOfTiresForCar; i++)
+                {
+                    tires.Add(new Tire(k_MaxTirePressureForCar));
+                }
+            }
+
+            if (i_TypeOfVehicle == eTypeOfVeichle.ElectricMotorCycle || i_TypeOfVehicle == eTypeOfVeichle.FuelMotorCycle)
+            {
+                for (int i = 0; i < k_MaxTirePressureForBike; i++)
+                {
+                    tires.Add(new Tire(k_MaxTirePressureForBike));
+                }
+            }
+
+            if(i_TypeOfVehicle==eTypeOfVeichle.Truck)
+            {
+                for (int i = 0; i < k_MaxTirePressureForTruck; i++)
+                {
+                    tires.Add(new Tire(k_MaxTirePressureForTruck));
+                }
+            }
+
+            return tires;
+        }
+
+
 
         public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tires, eLiecenceType i_LicenceType, int i_EngineCapacity)
         {
@@ -200,7 +239,7 @@ namespace Ex03.GarageLogic.Garage
                     motor.LicenceID = i_LicenceID;
                     motor.Model = i_VehicleModel;
                     motor.Engine.CurrentEnergy = i_EngineCurrentEnergy;
-                   // initTires(motor, i_TiresModel, i_CurrntTireAirPressure);
+                    // initTires(motor, i_TiresModel, i_CurrntTireAirPressure);
                     motor.LiecenceType = i_LicenceType;
                     motor.EngineCapacity = i_EngineCapacity;
                     Motors.Add(motor);
