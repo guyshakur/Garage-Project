@@ -79,7 +79,8 @@ namespace Ex03.ConsoleUI
         }
         public static bool checkReadFromUser(string i_Number, int i_MaximumNumber)
         {
-            return (int.TryParse(i_Number, out int result) && (result >= 1 && result <= i_MaximumNumber));
+            int result;
+            return (int.TryParse(i_Number, out result) && (result >= 1 && result <= i_MaximumNumber));
         }
         public static void checkIfQ(string i_input)
         {
@@ -274,19 +275,20 @@ namespace Ex03.ConsoleUI
 
         private static string addVeichleChoice()
         {
-            
             string readFromUser;
             do
             {
                 Console.Clear();
-                Console.WriteLine("     Add Veichle To Garage");
-                Console.WriteLine("in any location if you press on key 'Q' you return to main menu");
-                Console.WriteLine("please choose:\n" +
-                    "1. Fuel Car\n" +
-                    "2. Electric Car\n" +
-                    "3. Fuel MotorCycle\n" +
-                    "4. Electric MotorCycle\n" +
-                    "5. Truck\n");
+                Console.WriteLine(
+@"     Add Veichle To Garage
+in any location if you press on key 'Q' you return to main menu
+Please choose:
+1. Fuel Car
+2. Electric Car
+3. Fuel MotorCycle
+4. Electric MotorCycle
+5. Truck");
+
                 readFromUser = Console.ReadLine();
                 GarageConsole.checkIfQ(readFromUser);
             } while (!GarageConsole.checkReadFromUser(readFromUser, 5));
@@ -296,3 +298,4 @@ namespace Ex03.ConsoleUI
     }
 
 }
+              

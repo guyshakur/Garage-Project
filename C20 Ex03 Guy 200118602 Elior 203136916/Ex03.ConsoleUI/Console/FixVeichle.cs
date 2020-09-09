@@ -1,4 +1,5 @@
-﻿using Ex03.GarageLogic.Enums;
+﻿using Ex03.GarageLogic;
+using Ex03.GarageLogic.Enums;
 using Ex03.GarageLogic.Garage;
 using System;
 using System.Collections.Generic;
@@ -25,38 +26,47 @@ namespace Ex03.ConsoleUI
                 {
                     if (!Garage.ChangeStatusOfVehicleIfExists(licenceFromUser, (eVeichileStatus)result))
                     {
-                        Console.WriteLine("this Licence id not exist.\n" + "for exit press any key");
-                        Console.ReadLine();
+                        Console.WriteLine("this Licence id not exist."); ;
                     }
                     else
                     {
                         Console.WriteLine("status changed");
-                        Console.WriteLine("for exit pres any key");
-                        Console.ReadLine();
                     }
                 }
             }
 			else
 			{
-                Console.WriteLine("this Licence id not exist.\n" + "for exit press any key");
-                Console.ReadLine();
+                Console.WriteLine("this Licence id not exist.");
             }
+            Console.WriteLine("for exit press any key");
+            Console.ReadLine();
 
         }
 
 		internal static void chargeBattery()
 		{
-			throw new NotImplementedException();
+			
 		}
 
 		internal static void fuelCarWithGas()
 		{
-			throw new NotImplementedException();
+
 		}
 
 		internal static void inflateTires()
 		{
-			throw new NotImplementedException();
-		}
+            Console.WriteLine("Press Liecence Id of Vehicle for inflate tires ");
+            string licenceFromUser = Console.ReadLine();
+            if(Garage.InflateTiresToTheMaxIfExist(licenceFromUser))
+            {
+                Console.WriteLine("The tires are inflated to the maximum");
+            }
+			else
+			{
+                Console.WriteLine("There are no veichle with this Liecence ID");
+			}
+            Console.WriteLine("for exit pres any key");
+            Console.ReadLine();
+        }
 	}
 }
