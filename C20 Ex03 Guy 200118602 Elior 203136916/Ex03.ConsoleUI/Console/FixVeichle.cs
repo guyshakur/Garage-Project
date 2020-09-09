@@ -75,10 +75,7 @@ for exit (from this menu) press another key");
 				}
 				catch (FormatException fe)//if choose gas
 				{
-					Console.WriteLine(
-@"{0}
-your veichiles is gaz and not electric.
-we return to main menu.", fe.Message);
+					Console.WriteLine(fe.Message);
 				}
 				finally
 				{
@@ -137,17 +134,11 @@ we return to main menu.", fe.Message);
 				}
 				catch (FormatException fe)//if choose Electric
 				{
-					Console.WriteLine(
-@"{0}
-your veichiles is electric and not a gaz.
-we return to main menu.", fe.Message);
+					Console.WriteLine(fe.Message);
 				}
 				catch (ArgumentException ae)//if choose type of gaz Different
 				{
-					Console.WriteLine(
-@"{0}
-Your gaz type is diffrent from what you choose
-please try again", ae.Message);
+					Console.WriteLine(ae.Message);
 					fuelCarWithGas();
 				}
 				finally
