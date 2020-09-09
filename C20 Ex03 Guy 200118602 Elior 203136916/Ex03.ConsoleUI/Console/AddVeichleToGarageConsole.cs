@@ -114,8 +114,6 @@ namespace Ex03.ConsoleUI
 							model, currentGazAmountOrHoursLeftForBattery, tiresModel, tiresCurrentPressure,
 							color, doorType);
 						Console.WriteLine("added a new car is succeess");
-						Console.WriteLine("for exit to main menu press any key");
-						Console.ReadLine();
 					}
 					else if ((eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.FuelMotorCycle ||   //3
 					(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricMotorCycle)          //4
@@ -124,8 +122,6 @@ namespace Ex03.ConsoleUI
 							licenceID, model, currentGazAmountOrHoursLeftForBattery,
 							tiresModel, tiresCurrentPressure, liecenceType, (int)capacity);
 						Console.WriteLine("added a new motorecycle is succeess");
-						Console.WriteLine("for exit to main menu press any key");
-						Console.ReadLine();
 					}
 					else                                                                            //5
 					{
@@ -133,33 +129,26 @@ namespace Ex03.ConsoleUI
 							model, currentGazAmountOrHoursLeftForBattery, tiresModel,
 							tiresCurrentPressure, conrainsIsDanger, capacity);
 						Console.WriteLine("added a new truck is succeess");
-						Console.WriteLine("for exit to main menu press any key");
-						Console.ReadLine();
 					}
 					garage.AddCustomer(fullName, phoneNumber, licenceID);
-					Console.WriteLine("for exit to main menu press any key");
-					Console.ReadLine();
 				}
 				catch (ValueOutOfRangeException ex)
 				{
-					Console.WriteLine();
-					Console.WriteLine();
+					Console.WriteLine(
+@"
+
+");
 					Console.WriteLine(ex.Message);
-					Console.WriteLine("added a new car/motorcycle/truck is failed.\nto try again press any key");
-					Console.ReadLine();
-					//System.Threading.Thread.Sleep(1500);
+					Console.WriteLine("added a new car/motorcycle/truck is failed.");
 					return AddVeichleToGarageMenu();
 				}
-
 			}
 			else
 			{
 				Console.WriteLine("The Licence ID is exists - changing the status vehicle to FIXED");
-
-				Console.WriteLine("for exit to main menu press any key");
-				Console.ReadLine();
 			}
-			System.Threading.Thread.Sleep(1500);
+			Console.WriteLine("for exit to main menu press any key");
+			Console.ReadLine();
 			return (eTypeOfVeichle)readTypeOfVeicle;
 		}
 
