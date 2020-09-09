@@ -28,6 +28,7 @@ namespace Ex03.GarageLogic.Model
         {
             TypeOfVeichle = eTypeOfVeichle.FuelMotorCycle;
             Engine = new FuelEngine(i_FuelType, i_MaxEnergy);
+            Engine.TypeOfEngine = eTypeOfEngine.FUEL;
         }
     }
 }

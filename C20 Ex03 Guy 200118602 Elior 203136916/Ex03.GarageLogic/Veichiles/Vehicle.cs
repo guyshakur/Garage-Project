@@ -11,7 +11,6 @@ namespace Ex03.GarageLogic
         private List<Tire> m_Tires;
         private EngineType m_EngineType;
         private eTypeOfVeichle m_TypeOfVehicle;
-        private eTypeOfEngine m_TypeOfEngine;
 
         public string Model
         {
@@ -107,17 +106,7 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public eTypeOfEngine TypeOfEngine
-        {
-            get
-            {
-                return m_TypeOfEngine;
-            }
-            set
-            {
-                m_TypeOfEngine = value;
-            }
-        }
+        
         public override string ToString()
         {
             StringBuilder sb =

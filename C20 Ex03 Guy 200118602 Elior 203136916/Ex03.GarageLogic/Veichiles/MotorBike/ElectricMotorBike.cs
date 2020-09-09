@@ -20,6 +20,7 @@ namespace Ex03.GarageLogic.Veichiles
         {
             TypeOfVeichle = eTypeOfVeichle.ElectricMotorCycle;
             Engine = new ElectricEngine(i_MaxEnergy);
+            Engine.TypeOfEngine = eTypeOfEngine.ELECTRIC;
         }
     }
 }
