@@ -27,6 +27,7 @@ namespace Ex03.GarageLogic
         {
             TypeOfVeichle = eTypeOfVeichle.ElectricCar;
             Engine = new ElectricEngine(i_MaxEnergy);
+            Engine.TypeOfEngine = eTypeOfEngine.ELECTRIC;
         }
 
         //public override string ToString()

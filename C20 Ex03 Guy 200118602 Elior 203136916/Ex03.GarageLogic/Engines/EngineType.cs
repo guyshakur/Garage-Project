@@ -11,7 +11,7 @@ namespace Ex03.GarageLogic
     {
         private float m_MaxEnergy;
         private float m_CurrentEnergy;
-        protected eTypeOfEngine m_TypeOfEngine;
+        public eTypeOfEngine m_TypeOfEngine;
         private eFuelType m_FuelType;
 
         public eFuelType FuelType
@@ -63,6 +63,10 @@ namespace Ex03.GarageLogic
             get
             {
                 return m_TypeOfEngine;
+            }
+            set
+            {
+                m_TypeOfEngine = value;
             }
         }
 

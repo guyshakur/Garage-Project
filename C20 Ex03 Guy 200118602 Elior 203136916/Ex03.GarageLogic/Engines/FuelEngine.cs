@@ -13,7 +13,7 @@ namespace Ex03.GarageLogic
         {
             FuelType = i_FuelType;
             MaxEnergy = i_MaxEnergy;
-            m_TypeOfEngine = eTypeOfEngine.FUEL;
+            //m_TypeOfEngine = eTypeOfEngine.FUEL;
         }
 
         public override void FillEnergy()
