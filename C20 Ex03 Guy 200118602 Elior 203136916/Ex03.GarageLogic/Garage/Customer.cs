@@ -76,8 +76,8 @@ namespace Ex03.GarageLogic.Garage
 
         public override string ToString()
         {
-            return new StringBuilder().AppendLine(FullName)
-                .AppendLine(PhoneNumber).ToString();
+            return new StringBuilder().AppendLine("Full Name: "+FullName)
+                .AppendLine("Phone Numer: "+PhoneNumber).ToString();
         }
     }
 }

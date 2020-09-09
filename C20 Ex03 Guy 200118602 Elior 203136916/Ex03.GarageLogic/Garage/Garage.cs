@@ -151,7 +151,7 @@ namespace Ex03.GarageLogic.Garage
             Customers.Add(customer);
         }
 
-        public void AddCarAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tire, eColors i_Color, eDoorsType i_DoorType)
+        public void AddCarAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tires, eColors i_Color, eDoorsType i_DoorType)
         {
             switch (i_TypeOfVeichile)
             {
@@ -171,7 +171,7 @@ namespace Ex03.GarageLogic.Garage
                     car.LicenceID = i_LicenceID;
                     car.Model = i_VehicleModel;
                     car.Engine.CurrentEnergy = i_EngineCurrentEnergy;
-                    initTires(car, i_TiresModel, i_CurrntTireAirPressure);
+                   // initTires(car, i_TiresModel, i_CurrntTireAirPressure);
                     car.Colors = i_Color;
                     car.DoorType = i_DoorType;
                     Cars.Add(car);
@@ -180,7 +180,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tire, eLiecenceType i_LicenceType, int i_EngineCapacity)
+        public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tires, eLiecenceType i_LicenceType, int i_EngineCapacity)
         {
             switch (i_TypeOfVeichile)
             {
@@ -200,7 +200,7 @@ namespace Ex03.GarageLogic.Garage
                     motor.LicenceID = i_LicenceID;
                     motor.Model = i_VehicleModel;
                     motor.Engine.CurrentEnergy = i_EngineCurrentEnergy;
-                    initTires(motor, i_TiresModel, i_CurrntTireAirPressure);
+                   // initTires(motor, i_TiresModel, i_CurrntTireAirPressure);
                     motor.LiecenceType = i_LicenceType;
                     motor.EngineCapacity = i_EngineCapacity;
                     Motors.Add(motor);
@@ -209,7 +209,7 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        public void AddTruckAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tire, bool i_IsDangarus, float i_TruckCapacity)
+        public void AddTruckAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tires, bool i_IsDangarus, float i_TruckCapacity)
         {
             switch (i_TypeOfVeichile)
             {
@@ -228,7 +228,7 @@ namespace Ex03.GarageLogic.Garage
                     truck.LicenceID = i_LicenceID;
                     truck.Model = i_VehicleModel;
                     truck.Engine.CurrentEnergy = i_EngineCurrentEnergy;
-                    initTires(truck, i_TiresModel, i_CurrntTireAirPressure);
+                    //initTires(truck, i_TiresModel, i_CurrntTireAirPressure);
                     truck.IsHazardous = i_IsDangarus;
                     truck.TruckCapacity = i_TruckCapacity;
                     Trucks.Add(truck);
@@ -237,14 +237,14 @@ namespace Ex03.GarageLogic.Garage
             }
         }
 
-        private void initTires(Vehicle i_Vehicle, string i_TiresModel, float i_CurrntTireAirPressure)
-        {
-            foreach (Tire tire in i_Vehicle.Tires)
-            {
-                tire.Brand = i_TiresModel;
-                tire.CurrentPressure = i_CurrntTireAirPressure;
-            }
-        }
+        //private void initTires(List<Tire>-)
+        //{
+        //    foreach (Tire tire in i_Vehicle.Tires)
+        //    {
+        //        tire.Brand = i_TiresModel;
+        //        tire.CurrentPressure = i_CurrntTireAirPressure;
+        //    }
+        //}
 
         public static bool IsLicenceIDExistInGarage(string i_LicenceID)
         {

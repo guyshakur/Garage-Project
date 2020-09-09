@@ -26,6 +26,11 @@ namespace Ex03.GarageLogic
 
         internal static void FillFuel(EngineType i_Engine, eFuelType i_FuelType, float i_AmountToFill)
         {
+            if(i_Engine.TypeOfEngine!=eTypeOfEngine.FUEL)
+            {
+                throw new FormatException("Not Fuel Engine");
+            }
+
             if (i_FuelType != i_Engine.FuelType)
             {
                 throw new ArgumentException("The fuel type is not the correct one. the correct one is: " + i_Engine.FuelType.ToString());
@@ -46,6 +51,11 @@ namespace Ex03.GarageLogic
 
         internal static void ChargeBattery(EngineType i_Engine, float i_AmountHoursToCharge)
         {
+            if (i_Engine.TypeOfEngine != eTypeOfEngine.ELECTRIC)
+            {
+                throw new FormatException("Not Electric Engine");
+            }
+
             if (i_Engine.CurrentEnergy + i_AmountHoursToCharge > i_Engine.MaxEnergy)
             {
                 throw new ValueOutOfRangeException("hours to charge", 0, i_Engine.MaxEnergy - i_Engine.CurrentEnergy);
