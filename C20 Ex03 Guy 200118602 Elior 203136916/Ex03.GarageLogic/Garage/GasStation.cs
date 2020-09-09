@@ -29,7 +29,7 @@ namespace Ex03.GarageLogic
         {
             if (i_FuelType != i_Engine.FuelType)
             {
-                throw new ArgumentException("The fuel type is not the correct one. the correct one is: " + i_FuelType.ToString());
+                throw new ArgumentException("The fuel type is not the correct one. the correct one is: " + i_Engine.FuelType.ToString());
             }
             if (i_Engine.CurrentEnergy + i_AmountToFill > i_Engine.MaxEnergy)
             {

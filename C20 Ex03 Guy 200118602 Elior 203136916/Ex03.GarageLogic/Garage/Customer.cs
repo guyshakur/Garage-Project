@@ -73,5 +73,11 @@ namespace Ex03.GarageLogic.Garage
             PhoneNumber = i_PhoneNumber;
             LicenceIDOfCar = i_LicenceCarID;
         }
+
+        public override string ToString()
+        {
+            return new StringBuilder().AppendLine(FullName)
+                .AppendLine(PhoneNumber).ToString();
+        }
     }
 }

@@ -73,11 +73,12 @@ for exit (from this menu) press another key");
 						chargeBattery();
 					}
 				}
-				catch (FormatException)//if choose gas
+				catch (FormatException fe)//if choose gas
 				{
 					Console.WriteLine(
-@"your veichiles is gaz and not electric.
-we return to main menu.");
+@"{0}
+your veichiles is gaz and not electric.
+we return to main menu.", fe.Message);
 				}
 				finally
 				{
@@ -106,15 +107,15 @@ we return to main menu.");
 2. Octan96
 3. Octan98
 4. Soler");
-				} while (int.TryParse(Console.ReadLine(), out gazolineInt) && gazolineInt>=1 && gazolineInt<=4);
+				} while (!(int.TryParse(Console.ReadLine(), out gazolineInt) && gazolineInt >= 1 && gazolineInt <= 4));
 				float amount;
 				do
 				{
 					Console.WriteLine("enter amount of litters");
-				} while (float.TryParse(Console.ReadLine(), out amount));
+				} while (!(float.TryParse(Console.ReadLine(), out amount)));
 				try
-				{ 
-					Garage.FillVehicleWithGasIfExist(licenceId,(eFuelType)gazolineInt, amount);
+				{
+					Garage.FillVehicleWithGasIfExist(licenceId, (eFuelType)gazolineInt, amount);
 				}
 				catch (ValueOutOfRangeException ofe)//if you fill over 
 				{
@@ -134,17 +135,19 @@ we return to main menu.");
 						fuelCarWithGas();
 					}
 				}
-				catch (FormatException)//if choose Electric
+				catch (FormatException fe)//if choose Electric
 				{
 					Console.WriteLine(
-@"your veichiles is electric and not a gaz.
-we return to main menu.");
+@"{0}
+your veichiles is electric and not a gaz.
+we return to main menu.", fe.Message);
 				}
-				catch (ArgumentException)//if choose type of gaz Different
+				catch (ArgumentException ae)//if choose type of gaz Different
 				{
 					Console.WriteLine(
-@"Your gaz type is diffrent from what you choose
-please try again");
+@"{0}
+Your gaz type is diffrent from what you choose
+please try again", ae.Message);
 					fuelCarWithGas();
 				}
 				finally
@@ -158,7 +161,6 @@ please try again");
 				Console.WriteLine("There are no veichle with this Liecence ID");
 			}
 		}
-
 		internal static void inflateTires()
 		{
 			StringBuilder msg;
