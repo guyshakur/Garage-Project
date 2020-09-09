@@ -198,13 +198,21 @@ namespace Ex03.ConsoleUI
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("     Add Veichle To Garage");
+				Console.WriteLine(
+@"     Add Veichle To Garage
+please choose:
+1. Fuel Car
+2. Electric Car
+3. Fuel MotorCycle
+4. Electric MotorCycle
+5. Truck");
+				/*Console.WriteLine("     Add Veichle To Garage");
 				Console.WriteLine("please choose:\n" +
 					"1. Fuel Car\n" +
 					"2. Electric Car\n" +
 					"3. Fuel MotorCycle\n" +
 					"4. Electric MotorCycle\n" +
-					"5. Truck\n");
+					"5. Truck\n");*/
 				readFromUser = Console.ReadLine();
 			} while (!GarageConsole.checkReadFromUser(readFromUser, 5));
 			return readFromUser;
