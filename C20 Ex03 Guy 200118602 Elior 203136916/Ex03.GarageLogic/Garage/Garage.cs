@@ -200,7 +200,7 @@ namespace Ex03.GarageLogic.Garage
 
             if (i_TypeOfVehicle == eTypeOfVeichle.ElectricMotorCycle || i_TypeOfVehicle == eTypeOfVeichle.FuelMotorCycle)
             {
-                for (int i = 0; i < k_MaxTirePressureForBike; i++)
+                for (int i = 0; i < k_NumberOfTiresForMotorBike; i++)
                 {
                     tires.Add(new Tire(k_MaxTirePressureForBike));
                 }
@@ -208,7 +208,7 @@ namespace Ex03.GarageLogic.Garage
 
             if(i_TypeOfVehicle==eTypeOfVeichle.Truck)
             {
-                for (int i = 0; i < k_MaxTirePressureForTruck; i++)
+                for (int i = 0; i < k_NumberOfTiresForMotorTruck; i++)
                 {
                     tires.Add(new Tire(k_MaxTirePressureForTruck));
                 }
