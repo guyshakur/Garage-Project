@@ -123,6 +123,7 @@ namespace Ex03.ConsoleUI
 							model, currentGazAmountOrHoursLeftForBattery, tire,
 							color, doorType);
 						Console.WriteLine("added a new car is succeess");
+
 					}
 					else if ((eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.FuelMotorCycle ||   //3
 					(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricMotorCycle)          //4
@@ -139,6 +140,8 @@ namespace Ex03.ConsoleUI
 						Console.WriteLine("added a new truck is succeess");
 					}
 					garage.AddCustomer(fullName, phoneNumber, licenceID);
+					Console.WriteLine("for exit to main menu press any key");
+					Console.ReadLine();
 				}
 				catch (ValueOutOfRangeException ex)
 				{
@@ -147,19 +150,19 @@ namespace Ex03.ConsoleUI
 
 
 {0}
-added a new car/motorcycle/truck is failed.", ex.Message);
-					return AddVeichleToGarageMenu();
-				}
-				finally
-				{
-					Console.WriteLine("for exit to main menu press any key");
+added a new car/motorcycle/truck is failed.
+for try again press any key", ex.Message);
 					Console.ReadLine();
+					AddVeichleToGarageMenu();
 				}
 			}
 			else
 			{
 				Garage.ChangeStatusOfVehicleIfExists(licenceID, eVeichileStatus.FIXING);
-				Console.WriteLine("The Licence ID is exists - changing the status vehicle to fixing");
+				Console.WriteLine(
+@"The Licence ID is exists - changing the status vehicle to fixing
+for exit to main menu press any key");
+				Console.ReadLine();
 			}
 
 			return (eTypeOfVeichle)readTypeOfVeicle;
@@ -225,7 +228,7 @@ please choose:
 				do
 				{
 					Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
-				} while (!(float.TryParse(Console.ReadLine(), out tiresCurrentPressure)&& tiresCurrentPressure >= 0 &&
+				} while (!(float.TryParse(Console.ReadLine(), out tiresCurrentPressure) && tiresCurrentPressure >= 0 &&
 				tiresCurrentPressure <= tire.MaxPressure));
 				tire.CurrentPressure = tiresCurrentPressure;
 			}
