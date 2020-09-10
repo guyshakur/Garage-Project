@@ -26,7 +26,7 @@ namespace Ex03.GarageLogic
 
         internal static void FillFuel(EngineType i_Engine, eFuelType i_FuelType, float i_AmountToFill)
         {
-            if(i_Engine.TypeOfEngine!=eTypeOfEngine.FUEL)
+            if (i_Engine.TypeOfEngine != eTypeOfEngine.FUEL)
             {
                 throw new FormatException("Not Fuel Engine");
             }

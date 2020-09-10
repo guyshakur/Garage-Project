@@ -65,7 +65,6 @@ namespace Ex03.GarageLogic
         {
             Brand = i_Brand;
             CurrentPressure = i_CurrntPressure;
-
         }
 
         public void InflateTire(float i_AmountOfAirToAdd)

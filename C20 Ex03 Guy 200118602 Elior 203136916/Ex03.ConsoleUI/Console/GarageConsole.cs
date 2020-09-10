@@ -1,7 +1,7 @@
-﻿using Ex03.GarageLogic;
+﻿using System;
+using Ex03.GarageLogic;
 using Ex03.GarageLogic.Enums;
 using Ex03.GarageLogic.Garage;
-using System;
 
 namespace Ex03.ConsoleUI
 {
@@ -13,8 +13,6 @@ namespace Ex03.ConsoleUI
             do
             {
                 read = mainMenuChoice();
-                // if (read == "Q" || !int.TryParse(read, out int result) || result < 1 || result > 7)
-                //checkIfQ(read);
                 if (checkReadFromUser(read, 7))
                 {
                     switch (int.Parse(read))
@@ -24,31 +22,37 @@ namespace Ex03.ConsoleUI
                                 AddVeichleToGarageConsole.AddVeichleToGarageMenu();
                                 break;
                             }
+
                         case 2:
                             {
                                 DetaileOfVeichle.getListOfAllLiecenceInTheGarage();
                                 break;
                             }
+
                         case 3:
                             {
                                 FixVeichle.ChangeVehicleStatus();
                                 break;
                             }
+
                         case 4:
                             {
                                 FixVeichle.inflateTires();
                                 break;
                             }
+
                         case 5:
                             {
                                 FixVeichle.fuelCarWithGas();
                                 break;
                             }
+
                         case 6:
                             {
                                 FixVeichle.chargeBattery();
                                 break;
                             }
+
                         case 7:
                             {
                                 DetaileOfVeichle.getFullInfoAboutVeichleByLiecenceID();
@@ -58,8 +62,6 @@ namespace Ex03.ConsoleUI
                 }
             } while (true);
         }
-
-
 
         private static string mainMenuChoice()
         {
@@ -77,11 +79,13 @@ please choose your choice:
 7. Get full info about veichle by liecence ID");
             return Console.ReadLine();
         }
+
         public static bool checkReadFromUser(string i_Number, int i_MaximumNumber)
         {
             int result;
             return (int.TryParse(i_Number, out result) && (result >= 1 && result <= i_MaximumNumber));
         }
+
         public static void checkIfQ(string i_input)
         {
             if (i_input.Contains("Q"))
@@ -90,32 +94,32 @@ please choose your choice:
             }
         }
 
-
         private static bool isStringContainsOnlyNumerics(string i_String)
         {
             bool isStringOnlyNumerics = true;
             foreach (char c in i_String)
             {
-                if (!Char.IsDigit(c))
+                if (!char.IsDigit(c))
                 {
                     isStringOnlyNumerics = false;
                     break;
                 }
             }
+
             return isStringOnlyNumerics;
         }
-
 
         private static bool isStringContainsNumsOrSigns(string i_String)
         {
             bool isContainsNumberOrSigns = false;
             foreach (char c in i_String)
             {
-                if (!Char.IsLetter(c) && c != ' ')
+                if (!char.IsLetter(c) && c != ' ')
                 {
                     isContainsNumberOrSigns = true;
                 }
             }
+
             return isContainsNumberOrSigns;
         }
 
@@ -134,13 +138,10 @@ Please choose:
 3. Fuel MotorCycle
 4. Electric MotorCycle
 5. Truck");
-
                 readFromUser = Console.ReadLine();
                 GarageConsole.checkIfQ(readFromUser);
             } while (!GarageConsole.checkReadFromUser(readFromUser, 5));
             return readFromUser;
-
         }
     }
-
 }

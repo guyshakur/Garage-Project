@@ -9,8 +9,6 @@ namespace Ex03.GarageLogic
 {
     public class ElectricEngine : EngineType
     {
-        private float m_MaxBattryHours;
-
         public ElectricEngine(float i_MaxEnergy)
         {
             MaxEnergy = i_MaxEnergy;

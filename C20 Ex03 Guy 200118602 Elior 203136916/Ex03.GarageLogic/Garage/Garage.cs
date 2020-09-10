@@ -178,7 +178,6 @@ namespace Ex03.GarageLogic.Garage
                     car.Model = i_VehicleModel;
                     car.Engine.CurrentEnergy = i_EngineCurrentEnergy;
                     car.Tires = i_Tires;
-                    // initTires(car, i_TiresModel, i_CurrntTireAirPressure);
                     car.Colors = i_Color;
                     car.DoorType = i_DoorType;
                     Cars.Add(car);
@@ -189,7 +188,6 @@ namespace Ex03.GarageLogic.Garage
 
         public static List<Tire> CreateTires(eTypeOfVeichle i_TypeOfVehicle)
         {
-            Tire tire;
             List<Tire> tires = new List<Tire>();
             if (i_TypeOfVehicle == eTypeOfVeichle.ElectricCar || i_TypeOfVehicle == eTypeOfVeichle.FuelCar)
             {
@@ -207,7 +205,7 @@ namespace Ex03.GarageLogic.Garage
                 }
             }
 
-            if(i_TypeOfVehicle==eTypeOfVeichle.Truck)
+            if (i_TypeOfVehicle == eTypeOfVeichle.Truck)
             {
                 for (int i = 0; i < k_NumberOfTiresForMotorTruck; i++)
                 {
@@ -217,8 +215,6 @@ namespace Ex03.GarageLogic.Garage
 
             return tires;
         }
-
-
 
         public void AddMotorAndFillWithDetails(eTypeOfVeichle i_TypeOfVeichile, string i_LicenceID, string i_VehicleModel, float i_EngineCurrentEnergy, List<Tire> i_Tires, eLiecenceType i_LicenceType, int i_EngineCapacity)
         {
@@ -241,7 +237,6 @@ namespace Ex03.GarageLogic.Garage
                     motor.Model = i_VehicleModel;
                     motor.Engine.CurrentEnergy = i_EngineCurrentEnergy;
                     motor.Tires = i_Tires;
-                    // initTires(motor, i_TiresModel, i_CurrntTireAirPressure);
                     motor.LiecenceType = i_LicenceType;
                     motor.EngineCapacity = i_EngineCapacity;
                     Motors.Add(motor);
@@ -270,7 +265,6 @@ namespace Ex03.GarageLogic.Garage
                     truck.Model = i_VehicleModel;
                     truck.Engine.CurrentEnergy = i_EngineCurrentEnergy;
                     truck.Tires = i_Tires;
-                    //initTires(truck, i_TiresModel, i_CurrntTireAirPressure);
                     truck.IsHazardous = i_IsDangarus;
                     truck.TruckCapacity = i_TruckCapacity;
                     Trucks.Add(truck);
@@ -278,15 +272,6 @@ namespace Ex03.GarageLogic.Garage
                     break;
             }
         }
-
-        //private void initTires(List<Tire>-)
-        //{
-        //    foreach (Tire tire in i_Vehicle.Tires)
-        //    {
-        //        tire.Brand = i_TiresModel;
-        //        tire.CurrentPressure = i_CurrntTireAirPressure;
-        //    }
-        //}
 
         public static bool IsLicenceIDExistInGarage(string i_LicenceID)
         {
