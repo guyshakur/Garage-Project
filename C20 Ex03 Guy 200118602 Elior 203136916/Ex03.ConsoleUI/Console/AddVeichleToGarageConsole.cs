@@ -225,7 +225,8 @@ please choose:
 				do
 				{
 					Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
-				} while (!float.TryParse(Console.ReadLine(), out tiresCurrentPressure));
+				} while (!(float.TryParse(Console.ReadLine(), out tiresCurrentPressure)&& tiresCurrentPressure >= 0 &&
+				tiresCurrentPressure <= tire.MaxPressure));
 				tire.CurrentPressure = tiresCurrentPressure;
 			}
 		}
