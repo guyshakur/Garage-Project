@@ -57,7 +57,7 @@ namespace Ex03.ConsoleUI
 						Console.WriteLine("Please enter current hours lefft for battery of the car (numeric)");
 					}
 				} while (!float.TryParse(Console.ReadLine(), out currentGazAmountOrHoursLeftForBattery));
-				initTires(ref tire, (eTypeOfVeichle)readTypeOfVeicle);
+				initTires(out tire, (eTypeOfVeichle)readTypeOfVeicle);
 
 				if ((eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.FuelCar ||           //1
 					(eTypeOfVeichle)readTypeOfVeicle == eTypeOfVeichle.ElectricCar)         //2
@@ -214,22 +214,19 @@ please choose:
 
 		}
 
-		private static void initTires(ref List<Tire> io_Tires, eTypeOfVeichle i_TypeOfVeichle)
+		private static void initTires(out List<Tire> o_Tires, eTypeOfVeichle i_TypeOfVeichle)
 		{
-			int count = i_TypeOfVeichle == eTypeOfVeichle.ElectricCar || i_TypeOfVeichle == eTypeOfVeichle.FuelCar ? 4 :
-				i_TypeOfVeichle == eTypeOfVeichle.Truck ? 16 : 2;
-			for (int i = 0; i < count; i++)
+			o_Tires = Garage.CreateTires(i_TypeOfVeichle);
+			foreach (Tire tire in o_Tires)
 			{
 				float tiresCurrentPressure;
-				string tiresModel;
 				Console.WriteLine("please enter Tires Model of the car");
-				tiresModel = Console.ReadLine();
+				tire.Brand = Console.ReadLine();
 				do
 				{
 					Console.WriteLine("Please enter Tires Current pressure of the car (numeric)");
 				} while (!float.TryParse(Console.ReadLine(), out tiresCurrentPressure));
-
-				io_Tires.Add(new Tire(tiresCurrentPressure, tiresModel));
+				tire.CurrentPressure = tiresCurrentPressure;
 			}
 		}
 	}
